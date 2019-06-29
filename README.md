@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/caleb-42/react-epic-mail.svg?branch=develop)](https://travis-ci.org/caleb-42/react-epic-mail)
-
+[![Maintainability](https://api.codeclimate.com/v1/badges/fb1d642a92fd70680edb/maintainability)](https://codeclimate.com/github/caleb-42/react-epic-mail/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/fb1d642a92fd70680edb/test_coverage)](https://codeclimate.com/github/caleb-42/react-epic-mail/test_coverage)
 # React-Epic-Mail
 
 React Frontend of epic mail project. Epic mail is an app that will cater for the messaging needs of users who sign up to it
