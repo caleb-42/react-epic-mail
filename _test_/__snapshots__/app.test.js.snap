@@ -2,8 +2,8 @@
 
 exports[`should output Hello 1`] = `
 <h1
-  className="header"
+  className="landing"
 >
-  Hello
+  Welcom to EPIC MAIL
 </h1>
 `;
