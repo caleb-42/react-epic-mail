@@ -4,7 +4,11 @@
     "es6": true,
     "jest": true
   },
-  "extends": ["airbnb-base", "eslint:recommended", "plugin:react/recommended"],
+  "extends": [
+    "airbnb-base",
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
