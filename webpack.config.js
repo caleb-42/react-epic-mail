@@ -14,7 +14,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, "public"),
     publicPath: "/",
-    filename: "app.bundle.js"
+    filename: "app.bundle.js",
   },
   module: {
     rules: [
@@ -26,6 +26,14 @@ module.exports = {
         }
       },
       {
+        test: /\.css$/,
+        use: [
+          { loader: MiniCssExtractPlugin.loader },
+          "css-loader",
+          "postcss-loader"
+        ]
+      },
+      {
         test: /\.scss$/,
         use: [
           { loader: MiniCssExtractPlugin.loader },
@@ -33,6 +41,15 @@ module.exports = {
           "postcss-loader",
           "sass-loader"
         ]
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {},
+          },
+        ],
       }
     ]
   },

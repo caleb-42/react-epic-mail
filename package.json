@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --detectOpenHandles --coverage --verbose --forceExit",
-    "build": "webpack",
+    "build": "webpack --production",
     "dev": "webpack-dev-server",
     "start": "node public/app.bundle.js"
   },
@@ -20,16 +20,20 @@
     "url": "git+https://github.com/caleb-42/react-epic-mail.git"
   },
   "dependencies": {
+    "@fullhuman/postcss-purgecss": "^1.2.0",
     "autoprefixer": "^9.6.0",
     "copy-webpack-plugin": "^5.0.3",
+    "cssnano": "^4.1.10",
     "dotenv": "^8.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
+    "react-awesome-slider": "^1.0.1",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "redux": "^4.0.1",
-    "redux-immutable-state-invariant": "^2.1.0"
+    "redux-immutable-state-invariant": "^2.1.0",
+    "tailwindcss": "^1.0.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -39,9 +43,11 @@
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
+    "babel-plugin-module-resolver": "^3.2.0",
     "css-loader": "^3.0.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-import-resolver-babel-module": "^5.1.0",
     "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-react": "^7.13.0",
     "file-loader": "^4.0.0",
@@ -64,5 +70,9 @@
   "bugs": {
     "url": "https://github.com/caleb-42/react-epic-mail/issues"
   },
-  "homepage": "https://github.com/caleb-42/react-epic-mail#readme"
+  "homepage": "https://github.com/caleb-42/react-epic-mail#readme",
+  "browserslist": [
+    "last 2 version",
+    "> 2%"
+  ]
 }

@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`should output Hello 1`] = `
-<h1
-  className="landing"
->
-  Welcom to EPIC MAIL
-</h1>
-`;

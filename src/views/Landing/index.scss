@@ -1,3 +1,66 @@
-.landing{
-  color: green;
+
+.Speed{
+  background-image: url('../../assets/speed.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width:6rem;
+  height:6rem;
+  margin: .6rem auto;
+}
+.Support{
+  background-image: url('../../assets/support.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width:6rem;
+  height:6rem;
+  margin: .6rem auto;
+}
+.Innovation{
+  background-image: url('../../assets/smart.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width:6rem;
+  height:6rem;
+  margin: .6rem auto;
+}
+.offers{
+  box-shadow: .1rem 0rem 1rem 0 rgba(0, 0, 0, .1);
+}
+.devices{
+  background-image: url('../../assets/devices.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width:15rem;
+  height:10rem;
+  margin: .5rem auto;
+}
+.upload{
+  background-image: url('../../assets/upload.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width:10rem;
+  height:10rem;
+  margin: .5rem auto;
+}
+.reset{
+  background-image: url('../../assets/reset.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width:10rem;
+  height:10rem;
+  margin: .5rem auto;
+}
+.sms{
+  background-image: url('../../assets/sms.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width:10rem;
+  height:10rem;
+  margin: .5rem auto;
+}
+.features{
+  background-image: url('../../assets/background.png');
+  background-size: cover;
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
 }
