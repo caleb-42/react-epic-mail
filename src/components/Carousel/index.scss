@@ -1,0 +1,45 @@
+.aws-sld {
+  --loader-bar-color: rgb(95, 199, 159);
+  --organic-arrow-color: #fdffff;
+  button:focus{
+    outline: none;
+  }
+  &__bullets {
+    button {
+      margin: auto 1rem;
+    }
+    &--active{
+      background: rgb(77, 177, 138) !important;
+    }
+  }
+  &__content {
+    p {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+      transition: transform 0.45s cubic-bezier(0.15, 0.3, 0.15, 1), opacity 0.35s ease-out;
+    }
+    p:nth-child(2) {
+      transition-delay: 0.05s, 0.05s;
+    }
+    &--exit {
+      p {
+        transition: transform 0.225s cubic-bezier(0.85, 0, 0.85, 0.7), opacity 0.4s ease-out;
+      }
+      p:nth-child(2) {
+        transition-delay: 0.05s, 0.05s;
+      }
+    }
+    &--moveLeft {
+      p {
+        transform: translate3d(-50px, 0, 0);
+        opacity: 0;
+      }
+    }
+    &--moveRight {
+      p {
+        transform: translate3d(50px, 0, 0);
+        opacity: 0;
+      }
+    }
+  }
+}
