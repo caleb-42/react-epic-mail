@@ -1,3 +1,32 @@
-.header {
-  color: red;
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
+
+input[type=number] {
+    -moz-appearance: textfield; 
+}
+
+input::placeholder {
+  opacity: .4 !important; 
+}
+
+button:focus, li:focus, input:focus, textarea:focus {
+  outline: none !important; 
+}
+
+.flexdiv{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+.flex-center{
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
 }

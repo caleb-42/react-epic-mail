@@ -1,6 +1,7 @@
 const path = require("path");
 const dotenv = require("dotenv");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const Dotenv = require('dotenv-webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
@@ -37,7 +38,6 @@ module.exports = {
         test: /\.scss$/,
         use: [
           { loader: MiniCssExtractPlugin.loader },
-          "css-loader",
           "postcss-loader",
           "sass-loader"
         ]
@@ -70,7 +70,11 @@ module.exports = {
         to: path.join(__dirname, "public"),
         context: "src"
       }
-    ])
+    ]),
+    new Dotenv({
+      path: './.env',
+      safe: true
+    })
   ],
   optimization: {
     minimize: true,
