@@ -1,11 +1,10 @@
 const path = require("path");
 const dotenv = require("dotenv");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const Dotenv = require('dotenv-webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const Dotenv = require('dotenv-webpack');
 const TerserPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 dotenv.config();
 
@@ -13,9 +12,9 @@ module.exports = {
   mode: process.env.NODE_ENV || "development",
   entry: path.join(__dirname, "src", "index.js"),
   output: {
-    path: path.join(__dirname, "public"),
+    path: path.join(__dirname, "public/build"),
     publicPath: "/",
-    filename: "app.bundle.js",
+    filename: "index.js",
   },
   module: {
     rules: [
@@ -38,6 +37,7 @@ module.exports = {
         test: /\.scss$/,
         use: [
           { loader: MiniCssExtractPlugin.loader },
+          "css-loader",
           "postcss-loader",
           "sass-loader"
         ]
@@ -46,7 +46,7 @@ module.exports = {
         test: /\.(png|jpe?g|gif)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: process.env.NODE_ENV === 'development' ? 'file-loader' : 'ignore-loader',
             options: {},
           },
         ],
@@ -54,27 +54,18 @@ module.exports = {
     ]
   },
   devServer: {
-    contentBase: path.join(__dirname, "src")
+    contentBase: [path.join(__dirname, "src"), path.join(__dirname, "assets")],
+
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "src", "index.html")
     }),
     new MiniCssExtractPlugin({
-      filename: "app.css",
+      filename: "index.css",
       chunkFilename: "[id].css"
     }),
-    new CopyWebpackPlugin([
-      {
-        from: "./*.html",
-        to: path.join(__dirname, "public"),
-        context: "src"
-      }
-    ]),
-    new Dotenv({
-      path: './.env',
-      safe: true
-    })
+    new Dotenv()
   ],
   optimization: {
     minimize: true,

@@ -75,7 +75,7 @@ exports[`Landing page 1`] = `
     <div>
       <div>
         <div
-          data-src="../../assets/emailing.png"
+          data-src="emailing.png"
         >
           <div
             className="absolute ml-32 mt-48 w-64 top-0 left-0"
@@ -93,7 +93,7 @@ exports[`Landing page 1`] = `
           </div>
         </div>
         <div
-          data-src="../../assets/landing-sm.png"
+          data-src="landing-sm.png"
         >
           <div
             className="absolute ml-32 mt-48 w-64 top-0 left-0"
@@ -111,7 +111,7 @@ exports[`Landing page 1`] = `
           </div>
         </div>
         <div
-          data-src="../../assets/landing-desktop.png"
+          data-src="landing-desktop.png"
         >
           <div
             className="absolute ml-32 mt-48 w-64 top-0 left-0"

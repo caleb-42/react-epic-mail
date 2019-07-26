@@ -1,0 +1,10 @@
+{
+  "name": "EPIC MAIL",
+  "description": "A system that allows efficient, cost-effective mail sending operations",
+  "env": {
+    "SERVER": {
+      "required": true
+    },
+    "NODE_ENV": "review"
+  }
+}
