@@ -4,17 +4,17 @@ import Carousel from "@components/Carousel";
 const Slider = () => {
   const slides = [
     {
-      url: '../../assets/emailing.png',
+      url: `emailing.png`,
       caption_sm: 'Send SMS',
       caption_lg: 'Messages',
     },
     {
-      url: '../../assets/landing-sm.png',
+      url: `landing-sm.png`,
       caption_sm: 'Snap & Upload',
       caption_lg: 'Pictures',
     },
     {
-      url: '../../assets/landing-desktop.png',
+      url: `landing-desktop.png`,
       caption_sm: 'Stay',
       caption_lg: 'Connected',
     }
