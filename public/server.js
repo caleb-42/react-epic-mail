@@ -12,7 +12,6 @@ _dotenv.default.config();
 
 var app = (0, _express.default)();
 var PORT = process.env.PORT;
-console.log(_path.default.join(__dirname, '../assets'));
 app.use('/', _express.default.static("".concat(__dirname, "/build")));
 app.use('/', _express.default.static(_path.default.join(__dirname, '../assets')));
 app.listen(PORT, function () {

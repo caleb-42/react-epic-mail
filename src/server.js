@@ -7,7 +7,7 @@ dotenv.config();
 const app = express();
 
 const { PORT } = process.env;
-console.log(path.join(__dirname, '../assets'));
+
 app.use('/', express.static(`${__dirname}/build`));
 app.use('/', express.static(path.join(__dirname, '../assets')));
 
