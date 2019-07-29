@@ -2,9 +2,11 @@
   "name": "EPIC MAIL",
   "description": "A system that allows efficient, cost-effective mail sending operations",
   "env": {
-    "SERVER": {
+    "APP_URL": {
       "required": true
     },
-    "NODE_ENV": "review"
+    "NODE_ENV": {
+      "required": true
+    }
   }
 }

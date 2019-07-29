@@ -1,10 +1,12 @@
 import * as types from '../actions/actionTypes';
-import { signUp } from './initialValyes';
+import { auth } from './initialState';
 
-export default function authReducer(state = signUp, action) {
+export default function authReducer(state = auth, action) {
   switch (action.type) {
     case types.SIGN_UP:
-      return { ...state, ...action.signUp };
+      return { ...state, signUp: action.signUp };
+    case types.LOG_IN:
+      return { ...state, logIn: action.logIn };
     default:
       return state;
   }

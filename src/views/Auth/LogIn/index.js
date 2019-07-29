@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import PropTypes from 'prop-types';
-import Form from "./Form";
-import Nav from "../../components/NavBar";
-import "./index.scss";
-import Footer from "../../components/Footer";
-import { signUpUser } from "../../redux/actions/authActions";
+import Form from "../../../components/Forms/AuthForm";
+import Nav from "../../../components/NavBar";
+import "../index.scss";
+import Footer from "../../../components/Footer";
+import { logInUser } from "../../../redux/actions/authActions";
 
-const SignUp = ({ history, signUpUser, auth }) => {
+export const LogIn = ({ history, logInUser, auth }) => {
   const [user, setUser] = useState({});
   const [saving, setSaving] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setSaving(true);
-    signUpUser(user, (res) => {
+    logInUser(user, (res) => {
       setSaving(false);
       if (res.data) history.push('/home');
     })
@@ -28,12 +28,27 @@ const SignUp = ({ history, signUpUser, auth }) => {
   return (
     <React.Fragment>
       <Nav className="block w-full" />
-      <div className="signUp flexdiv">
+      <div className="logIn flexdiv">
         <Form
           error={auth.error}
+          header='Log In'
+          button='Sign In'
           saving={saving}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
+          inputs={[
+            {
+              placeholder: "username@epicmail.com",
+              name: "email",
+              type: "email",
+              label: "Email"
+            },
+            {
+              name: "password",
+              type: "password",
+              label: "Password"
+            }
+          ]}
         />
       </div>
       <Footer className="absolute bottom-0" />
@@ -41,9 +56,9 @@ const SignUp = ({ history, signUpUser, auth }) => {
   );
 }
 
-SignUp.propTypes = {
+LogIn.propTypes = {
   history: PropTypes.object,
-  signUpUser: PropTypes.func,
+  logInUser: PropTypes.func,
   props: PropTypes.object,
   auth: PropTypes.object,
   error: PropTypes.string,
@@ -51,12 +66,12 @@ SignUp.propTypes = {
 }
 
 function mapStateToProps(state) {
-  /* console.log(state); */
+  console.log(state);
   return {
-    auth: state.auth
+    auth: state.auth.logIn
   }
 }
 
-const matchDispatchToProps = { signUpUser }
+const matchDispatchToProps = { logInUser }
 
-export default connect(mapStateToProps, matchDispatchToProps)(SignUp);
+export default connect(mapStateToProps, matchDispatchToProps)(LogIn);

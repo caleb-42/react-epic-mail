@@ -1,18 +1,22 @@
 import React from "react";
-import renderer from "react-test-renderer";
-import { cleanup, render } from "@testing-library/react";
+import { cleanup, render, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from 'react-router-dom';
-import { Provider as ReduxProvider } from "react-redux";
-import App from "../src/app";
-import configureStore from "../src/redux/configureStore";
-import Form from '../src/views/SignUp/Form'
-
-const store = configureStore();
+import Form from './index'
 
 const renderSignUpForm = (args) => {
-  let defaultProps = {
+  const defaultProps = {
     error: '',
     saving: false,
+    button: 'Register',
+    header: 'Sign Up',
+    inputs: [
+      {
+        name: 'email',
+        placeholder: 'username@epicmail.com',
+        label: 'Email',
+        type: 'email'
+      }
+    ],
     handleChange: () => { },
     handleSubmit: () => { }
   }
@@ -20,26 +24,14 @@ const renderSignUpForm = (args) => {
   return render(<Form {...props} />)
 }
 
-describe('SIGN UP', () => {
+describe('AUTH FORM', () => {
 
   afterEach(cleanup);
 
-  describe('SNAPSHOT TEST', () => {
-    it("Sign up page", () => {
-      const tree = renderer.create(
-        <ReduxProvider store={store}>
-          <MemoryRouter initialEntries={['/signup']}>
-            <App />
-          </MemoryRouter>
-        </ReduxProvider>
-      );
-      expect(tree).toMatchSnapshot();
-    });
-  });
   describe('COMPONENT TEST', () => {
     it("Should contain Sign up header", () => {
       const { getByText } = renderSignUpForm();
-      getByText('Sign Up');
+      getByText('Register');
     });
     it("Should have submit button display Register by default", () => {
       const { getByText } = renderSignUpForm();

@@ -2,9 +2,9 @@ import React from "react";
 import Nav from "@components/NavBar";
 import '@styles/main.css';
 import './index.scss';
-import Features from "./Features";
-import Offers from "./Offers";
-import Slider from "./Slider";
+import Features from "./partitions/Features";
+import Offers from "./partitions/Offers";
+import Slider from "./partitions/Slider";
 import Footer from "../../components/Footer";
 
 const Landing = () => {

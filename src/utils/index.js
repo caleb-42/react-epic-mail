@@ -1,4 +1,4 @@
-export const server = async (url = '', method = '', body = {}, resolve = (res) => { }, reject = (err) => { }, contentType = { 'Content-Type': 'application/json' }) => {
+export const server = (url = '', method = '', body = {}, contentType = { 'Content-Type': 'application/json' }) => {
   body = JSON.stringify(body);
   const token = getUser();
   if (token) contentType['x-access-token'] = token;
@@ -10,13 +10,14 @@ export const server = async (url = '', method = '', body = {}, resolve = (res) =
   if (contentType === null) delete payload.headers;
   const endpoint = `${process.env.APP_URL}${url}`;
   // eslint-disable-next-line no-undef
-  await fetch(endpoint, payload)
+
+  return fetch(endpoint, payload)
     .then(resp => resp.json())
-    .then((res) => {
-      setTimeout(() => { resolve(res); }, 0);
-    }).catch((err) => {
-      reject(err);
-    });
+  /* .then((res) => {
+    setTimeout(() => { resolve(res); }, 0);
+  }).catch((err) => {
+    reject(err);
+  }); */
 };
 
 export const storeUser = (data) => {

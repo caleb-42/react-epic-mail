@@ -1,4 +1,4 @@
-.signUp {
+.logIn, .signUp {
   background-image: url('/backgroundgrn.png');
   background-size: cover;
   background-repeat: no-repeat;
@@ -8,7 +8,7 @@ form{
   box-shadow: .1rem 0rem 1rem 0 rgba(0, 0, 0, .3);
 }
 .error {
-  @apply text-sm w-3/5 mr-0 ml-auto text-gray-800 text-left block;
+  color: rgba(255, 255, 255, .8) !important;
 }
 .input-group{
   @apply py-2 text-white;

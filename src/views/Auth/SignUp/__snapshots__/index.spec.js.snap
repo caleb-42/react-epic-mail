@@ -76,7 +76,7 @@ exports[`SIGN UP SNAPSHOT TEST Sign up page 1`] = `
   >
     <form
       autoComplete="off"
-      className="flexcenter inset-0 min-h-4/6 rounded-lg w-5/12 m-auto p-8"
+      className="flexcenter inset-0 rounded-lg w-5/12 m-auto p-8"
       onSubmit={[Function]}
     >
       <h3
@@ -100,6 +100,7 @@ exports[`SIGN UP SNAPSHOT TEST Sign up page 1`] = `
             name="email"
             onChange={[Function]}
             placeholder="username@epicmail.com"
+            required={true}
             type="email"
           />
         </div>
@@ -115,6 +116,7 @@ exports[`SIGN UP SNAPSHOT TEST Sign up page 1`] = `
             className="input"
             name="recoveryEmail"
             onChange={[Function]}
+            required={true}
             type="email"
           />
         </div>
@@ -130,6 +132,7 @@ exports[`SIGN UP SNAPSHOT TEST Sign up page 1`] = `
             className="input"
             name="password"
             onChange={[Function]}
+            required={true}
             type="password"
           />
         </div>
@@ -145,12 +148,13 @@ exports[`SIGN UP SNAPSHOT TEST Sign up page 1`] = `
             className="input"
             name="confirmPassword"
             onChange={[Function]}
+            required={true}
             type="password"
           />
         </div>
       </div>
       <p
-        className="text-center block mx-auto text-white font-semibold my-2"
+        className="text-center block mx-auto text-white font-semibold my-2 opacity-75"
       >
         
       </p>

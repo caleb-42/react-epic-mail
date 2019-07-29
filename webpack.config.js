@@ -1,8 +1,8 @@
 const path = require("path");
 const dotenv = require("dotenv");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const Dotenv = require('dotenv-webpack');
 const TerserPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
@@ -65,7 +65,9 @@ module.exports = {
       filename: "index.css",
       chunkFilename: "[id].css"
     }),
-    new Dotenv()
+    new webpack.DefinePlugin({
+      'process.env.APP_URL': JSON.stringify(process.env.APP_URL)
+    })
   ],
   optimization: {
     minimize: true,
