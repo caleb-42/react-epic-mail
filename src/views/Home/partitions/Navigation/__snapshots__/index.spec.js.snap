@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SNAPSHOT TEST Nav Component with SideBar 1`] = `
+<aside
+  className="appNav side-nav h-screen bg-gray-800 w-1/5"
+>
+  <div
+    className="logo"
+  />
+  <ul
+    className="side-nav mt-16 relative navig anim"
+  >
+    <li>
+      <h3
+        className="active nav text-white px-12 py-6 text-xl font-semibold"
+        onClick={[Function]}
+      >
+        Mails
+      </h3>
+      <ul
+        className="mail-types bg-gray-750 anim w-100 open"
+      >
+        <li
+          className="active subnav px-12 py-4 text-md"
+          onClick={[Function]}
+        >
+          Inbox
+        </li>
+        <li
+          className="text-white subnav px-12 py-4 text-md"
+          onClick={[Function]}
+        >
+          Unread
+        </li>
+        <li
+          className="text-white subnav px-12 py-4 text-md"
+          onClick={[Function]}
+        >
+          Sent
+        </li>
+        <li
+          className="text-white subnav px-12 py-4 text-md"
+          onClick={[Function]}
+        >
+          Draft
+        </li>
+      </ul>
+    </li>
+    <li>
+      <h3
+        className=" nav text-white px-12 py-6 text-xl font-semibold"
+        onClick={[Function]}
+      >
+        Groups
+      </h3>
+    </li>
+    <li>
+      <h3
+        className=" nav text-white px-12 py-6 text-xl font-semibold"
+        onClick={[Function]}
+      >
+        Settings
+      </h3>
+    </li>
+  </ul>
+</aside>
+`;

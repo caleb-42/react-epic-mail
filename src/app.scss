@@ -30,3 +30,23 @@ button:focus, li:focus, input:focus, textarea:focus {
     justify-content:center;
     flex-direction:column;
 }
+.logo{
+  background-image: url('/logo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width:6rem;
+  height:4.5rem;
+  /* padding: .5rem 0 .5rem 3.5rem; */
+}
+.anim {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease; 
+}
+.anim-ease {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease-in; 
+}

@@ -26,7 +26,7 @@ export const LogIn = ({ history, logInUser, auth }) => {
   }
 
   return (
-    <React.Fragment>
+    <div className="auth">
       <Nav className="block w-full" />
       <div className="logIn flexdiv">
         <Form
@@ -52,7 +52,7 @@ export const LogIn = ({ history, logInUser, auth }) => {
         />
       </div>
       <Footer className="absolute bottom-0" />
-    </React.Fragment>
+    </div>
   );
 }
 
@@ -66,7 +66,6 @@ LogIn.propTypes = {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     auth: state.auth.logIn
   }

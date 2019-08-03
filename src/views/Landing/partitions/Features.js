@@ -27,7 +27,7 @@ const Features = ({ className }) => {
   return (
     <div className={className}>
       <div className="title mx-auto bg-gray-600 w-1/5 py-2 rounded-full shadow-lg -mt-8 relative z-20">
-        <h3 className="text-center text-white text-2xl font-semibold">Features</h3>
+        <h3 className="text-center text-white text-2xl font-medium">Features</h3>
       </div>
       <div className="mx-auto w-3/4 py-12">
         {
@@ -36,7 +36,7 @@ const Features = ({ className }) => {
               <div className="w-4/5 mx-auto">
                 <div className={item.art}></div>
                 <div className="text-center">
-                  <h2 className="opac-70 text-lg font-semibold my-2">{item.caption}</h2>
+                  <h2 className="opac-70 text-lg font-medium my-2">{item.caption}</h2>
                   <p className="opac-50 text-sm text-gray-700">{item.details}</p>
                 </div>
               </div>

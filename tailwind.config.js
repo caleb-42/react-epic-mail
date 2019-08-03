@@ -23,6 +23,7 @@ module.exports = {
         500: '#a0a0a0',
         600: '#969696',
         700: '#686868',
+        750: '#5a5a5a',
         800: '#484848',
         900: '#2c2c2c',
       },
@@ -139,6 +140,7 @@ module.exports = {
       '10': '2.5rem',
       '12': '3rem',
       '16': '4rem',
+      '18': '4.5rem',
       '20': '5rem',
       '22': '5.5rem',
       '24': '6rem',
@@ -249,6 +251,7 @@ module.exports = {
     },
     fontFamily: {
       montserrat: ['Montserrat'],
+      montserratBold: ['Montserrat'],
       lato: ['Lato'],
       sans: [
         '-apple-system',

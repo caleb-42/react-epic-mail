@@ -1,8 +1,8 @@
 import fetchMock from 'fetch-mock';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import { auth } from '@redux/reducers/initialState';
 import { SIGN_UP, LOG_IN } from './actionTypes';
-import { auth } from '../reducers/initialState';
 import * as authActions from './authActions';
 
 const middleware = [thunk];

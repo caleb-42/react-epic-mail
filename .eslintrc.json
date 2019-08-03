@@ -30,6 +30,7 @@
           "@components": "./src/components",
           "@hocs": "./src/hocs",
           "@views": "./src/views",
+          "@redux": "./src/redux",
           "@styles": "./src/styles"
         }
       }

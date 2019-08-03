@@ -1,0 +1,22 @@
+.appNav {
+  &.side-nav {
+    @apply inline-block;
+    .logo {
+      @apply relative;
+      left: 3rem;
+      top:2rem;
+    }
+  }
+
+  &.top-nav {
+    
+  }
+  
+  h3.active{
+    @apply bg-gray-900;
+  }
+
+  li.active{
+    @apply bg-yellow-500;
+  }
+}

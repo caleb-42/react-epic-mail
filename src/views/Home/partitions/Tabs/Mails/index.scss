@@ -1,0 +1,46 @@
+.mails{
+  .postPic{
+    @apply flex-grow-0 self-center;
+    background: url('/dp.png');
+    background-size: cover;
+    height: 5rem;
+    width: 5rem;
+  }
+  .post-bloated{
+    @apply flex justify-center flex-col;
+    .subject{
+      @apply text-center my-8 text-xl opacity-50;
+    }
+    .name{
+      @apply text-center mt-2 text-green-500 text-xl font-semibold;
+    }
+    .email{
+      @apply text-center text-sm my-1 opacity-75;
+    }
+    .bodyhead{
+      @apply flex my-1 justify-between text-sm;
+    }
+    .content{
+      @apply text-justify text-sm opacity-50 my-1;
+    }
+  }
+  .details{
+    @apply flex-grow flex flex-col pl-4;
+    .name {
+      @apply font-medium text-lg text-green-500;
+    }
+    .meta {
+      @apply flex justify-between;
+      .status {
+        @apply text-xs;
+      }
+      .timestamp {
+        @apply text-xs;
+      }
+    }
+    .subject {
+      @apply text-sm mt-2 mb-3 opacity-75;
+    }
+    
+  }
+}

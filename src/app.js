@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, HashRouter as Router } from "react-router-dom";
-import "./app.scss";
-import LogIn from "./views/Auth/LogIn";
-import SignUp from "./views/Auth/SignUp";
-import Landing from "./views/Landing";
-import Home from "./views/Home";
+import "@src/app.scss";
+import LogIn from "@views/Auth/LogIn";
+import SignUp from "@views/Auth/SignUp";
+import Landing from "@views/Landing";
+import Home from "@views/Home";
 
 const App = () => {
   return (

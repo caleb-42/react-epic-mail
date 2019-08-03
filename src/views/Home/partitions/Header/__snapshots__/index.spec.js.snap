@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SNAPSHOT TEST Header Component 1`] = `
+<div
+  className=" flex header py-4 px-8 h-16"
+>
+  <div
+    className="backbtn"
+  />
+  <h1
+    className="text-2xl text-white font-semibold self-center"
+    id="tabname"
+  >
+    Inbox
+  </h1>
+  <div
+    className="navicon img-con"
+  />
+</div>
+`;
