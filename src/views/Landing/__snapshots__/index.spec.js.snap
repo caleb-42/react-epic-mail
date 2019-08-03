@@ -2,9 +2,11 @@
 
 exports[`Landing page 1`] = `
 <div>
-  <div>
+  <div
+    className="landingPage"
+  >
     <nav
-      className="lg:px-16 px-6 flex flex-wrap items-center lg:py-0 py-2 -mb-22 z-20 relative"
+      className="appNav lg:px-16 px-6 flex flex-wrap items-center lg:py-0 py-2 -mb-18 z-20 relative"
     >
       <div
         className="flex-1 flex justify-between items-center"
@@ -20,7 +22,7 @@ exports[`Landing page 1`] = `
       >
         <div>
           <ul
-            className="lg:flex items-center justify-between text-base text-white font-montserrat font-semibold pt-4 lg:pt-0"
+            className="lg:flex items-center justify-between text-base text-white font-montserrat font-medium pt-4 lg:pt-0"
           >
             <li>
               <a
@@ -137,7 +139,7 @@ exports[`Landing page 1`] = `
         className="w-2/5 mx-auto"
       >
         <h1
-          className="text-center text-gray-800 w-100 text-2xl mb-4 font-extrabold"
+          className="text-center text-gray-800 w-100 text-2xl mb-4 font-medium"
         >
           What we offer
         </h1>
@@ -207,7 +209,7 @@ exports[`Landing page 1`] = `
         className="title mx-auto bg-gray-600 w-1/5 py-2 rounded-full shadow-lg -mt-8 relative z-20"
       >
         <h3
-          className="text-center text-white text-2xl font-semibold"
+          className="text-center text-white text-2xl font-medium"
         >
           Features
         </h3>
@@ -228,7 +230,7 @@ exports[`Landing page 1`] = `
               className="text-center"
             >
               <h2
-                className="opac-70 text-lg font-semibold my-2"
+                className="opac-70 text-lg font-medium my-2"
               >
                 Control from any device
               </h2>
@@ -253,7 +255,7 @@ exports[`Landing page 1`] = `
               className="text-center"
             >
               <h2
-                className="opac-70 text-lg font-semibold my-2"
+                className="opac-70 text-lg font-medium my-2"
               >
                 Picture upload
               </h2>
@@ -278,7 +280,7 @@ exports[`Landing page 1`] = `
               className="text-center"
             >
               <h2
-                className="opac-70 text-lg font-semibold my-2"
+                className="opac-70 text-lg font-medium my-2"
               >
                 Password reset
               </h2>
@@ -303,7 +305,7 @@ exports[`Landing page 1`] = `
               className="text-center"
             >
               <h2
-                className="opac-70 text-lg font-semibold my-2"
+                className="opac-70 text-lg font-medium my-2"
               >
                 SMS Messaging
               </h2>
@@ -321,7 +323,7 @@ exports[`Landing page 1`] = `
       className=" text-center text-sm py-3 w-full"
     >
       <h3
-        className="text-white font-lato"
+        className="text-white "
       >
         EPICMAIL Copyright 
         2019

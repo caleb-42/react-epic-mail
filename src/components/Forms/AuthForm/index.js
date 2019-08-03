@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TextInput from '../../Inputs/TextInput';
+import TextInput from '@components/Inputs/TextInput';
 
 const FormApp = ({ header, button, handleChange, handleSubmit, error = '', saving, inputs }) => {
   return (
@@ -20,7 +20,7 @@ const FormApp = ({ header, button, handleChange, handleSubmit, error = '', savin
         ))
         }
       </div>
-      <p className="text-center block mx-auto text-white font-semibold my-2 opacity-75">{error}</p>
+      <p className="text-center block mx-auto font-medium text-white my-2 opacity-75">{error}</p>
       <button type="submit" disabled={saving} className="px-8 py-3 shadow-lg text-center block mx-auto mt-4 text-yellow-800 font-semibold bg-yellow-500 rounded-lg">{saving ? 'Loading' : button}</button>
     </form>
   );
@@ -33,6 +33,7 @@ FormApp.propTypes = {
   saving: PropTypes.bool,
   inputs: PropTypes.array,
   button: PropTypes.string,
+  header: PropTypes.string,
 }
 
 export default FormApp;

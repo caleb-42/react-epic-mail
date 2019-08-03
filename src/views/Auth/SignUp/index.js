@@ -26,7 +26,7 @@ export const SignUp = ({ history, signUpUser, auth }) => {
   }
 
   return (
-    <React.Fragment>
+    <div className="auth">
       <Nav className="block w-full" />
       <div className="signUp flexdiv">
         <Form
@@ -37,6 +37,16 @@ export const SignUp = ({ history, signUpUser, auth }) => {
           handleChange={handleChange}
           handleSubmit={handleSubmit}
           inputs={[
+            {
+              name: "firstName",
+              type: "text",
+              label: "First Name"
+            },
+            {
+              name: "lastName",
+              type: "text",
+              label: "Last Name"
+            },
             {
               placeholder: "username@epicmail.com",
               name: "email",
@@ -62,7 +72,7 @@ export const SignUp = ({ history, signUpUser, auth }) => {
         />
       </div>
       <Footer className="absolute bottom-0" />
-    </React.Fragment>
+    </div>
   );
 }
 

@@ -1,6 +1,11 @@
 import { combineReducers } from 'redux';
-import mail from './mailReducer';
+import mails from './mailReducer';
 import auth from './authReducer';
+import activeNav from './navReducer';
 
-const rootReducer = combineReducers({ mail, auth });
+const rootReducer = combineReducers({
+  mails,
+  auth,
+  activeNav
+});
 export default rootReducer;
