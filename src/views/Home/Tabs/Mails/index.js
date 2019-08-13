@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import PropTypes from 'prop-types';
 import Error from '@components/Error';
+import Loader from '@components/Loader';
 import * as mailActions from "@redux/actions/mailActions";
 import Post from './partitions/mailPost';
 import PostBloated from './partitions/mailPostBloated';
@@ -13,7 +14,8 @@ const Mails = ({ mails, actions }) => {
   const { active } = mails;
 
   const showMails = () => {
-    if (!data) return <Error error={mails.messages.error} />;
+    if (mails.loading) return <Loader />
+    else if (!data && !mails.loading) return <Error error={mails.messages.error} />;
     if (!data.length) return <Error error="Empty" />;
     return data.map((mail, index) => (
       <Post key={mail.id} index={index} className={`${active.id === mail.id ? 'active' : ''} ${active.id && active.id !== mail.id ? 'inactive' : ''}`} click={() => actions.getSingleMail(mail)} mail={mail} />
@@ -21,7 +23,7 @@ const Mails = ({ mails, actions }) => {
   }
 
   return (
-    <div className="mails tab anim">
+    <div className={`mails tab anim ${active.id ? 'post-active' : ''}`}>
       <div className="left-body anim-ease tab-content">
         <div className="content-wrapper">
           {showMails()}

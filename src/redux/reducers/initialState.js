@@ -1,6 +1,8 @@
 export const auth = {
   signUp: {},
-  logIn: {}
+  logIn: {},
+  isAuthenticated: false,
+  user: {}
 }
 
 export const mails = {
@@ -28,9 +30,11 @@ export const mails = {
       }
     ]
   },
+  response: { empty: '' },
   active: {
 
-  }
+  },
+  loading: false
 };
 
 export const navs = [

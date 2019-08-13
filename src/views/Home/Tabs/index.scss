@@ -1,0 +1,53 @@
+.main-body{
+  @apply h-full w-full flex;
+  .tab{
+    @apply h-full w-full;
+    .left-body{
+      @apply w-full;
+    }
+    &.post-active .left-body{
+      @apply w-0;
+    }
+    .right-body{
+      @apply w-0;
+    }
+    &.post-active .right-body{
+      @apply w-full py-0;
+    }
+    @media  (min-width: 768px) {
+      @apply flex;
+    }
+    .left-body.tab-content, .right-body.tab-content{
+      @apply h-full inline-block;
+      @media (min-width: 768px) {
+        @apply w-2/4;
+      }
+    }
+    .post {
+      visibility: visible;
+      @apply rounded-lg w-full bg-white opacity-100 text-gray-700 flex p-4 mb-4;
+      box-shadow: .1rem 0rem .6rem 0 rgba(0, 0, 0, .1);
+      &.active {
+        transform: scale(1.05);
+      }
+      &.inactive {
+        @apply opacity-75;
+      }
+    }
+    &.post-active .post {
+      @apply p-4;
+      @media (max-width: 768px) {
+        @apply p-0;
+        visibility: hidden;
+        opacity: 0;
+      }
+    }
+  }
+  .left-body{
+    background: rgba(246, 246, 233, 0.5);
+  }
+  
+  .tab-content > div{
+    @apply p-10 flex flex-col h-full overflow-y-auto;
+  }
+}

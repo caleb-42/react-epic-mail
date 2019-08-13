@@ -2,6 +2,14 @@ import { server } from '@src/utils';
 import * as types from './actionTypes';
 import navigate from './navActions';
 
+export const clearMail = () => {
+  return { type: types.CLEAR_MAIL }
+}
+
+export const clearResponse = () => {
+  return { type: types.CLEAR_RESPONSE }
+}
+
 export const getSingleMail = active => {
   return { type: types.GET_SINGLE_MAIL, active }
 }
@@ -9,6 +17,7 @@ export const getSingleMail = active => {
 export const getInbox = activeNav => {
   return async (dispatch) => {
     dispatch(navigate(activeNav));
+    dispatch(clearMail());
     return server('messages', 'GET', {}).then(res =>
       dispatch({ type: types.GET_MAILS, messages: res })
     ).catch(err =>
@@ -20,6 +29,7 @@ export const getInbox = activeNav => {
 export const getMails = activeNav => {
   return async (dispatch) => {
     dispatch(navigate(activeNav));
+    dispatch(clearMail());
     return server('messages/all', 'GET', {}).then(res =>
       dispatch({ type: types.GET_MAILS, messages: res })
     ).catch(err =>
@@ -31,6 +41,7 @@ export const getMails = activeNav => {
 export const getUnread = activeNav => {
   return async (dispatch) => {
     dispatch(navigate(activeNav));
+    dispatch(clearMail());
     return server('messages/unread', 'GET', {}).then(res =>
       dispatch({ type: types.GET_MAILS, messages: res })
     ).catch(err =>
@@ -42,6 +53,7 @@ export const getUnread = activeNav => {
 export const getSent = activeNav => {
   return (dispatch) => {
     dispatch(navigate(activeNav));
+    dispatch(clearMail());
     return server('messages/sent', 'GET', {}).then(res =>
       dispatch({ type: types.GET_MAILS, messages: res })
     ).catch(err =>
@@ -53,10 +65,41 @@ export const getSent = activeNav => {
 export const getDraft = activeNav => {
   return async (dispatch) => {
     dispatch(navigate(activeNav));
+    dispatch(clearMail());
     return server('messages/draft', 'GET', {}).then(res =>
       dispatch({ type: types.GET_MAILS, messages: res })
     ).catch(err =>
       dispatch({ type: types.GET_MAILS, messages: err })
+    )
+  }
+}
+
+export const sendMail = (mail, cb) => {
+  return async (dispatch) => {
+    return server('messages', 'POST', mail).then(res => {
+      cb();
+      if (res.data) res.message = 'Message sent successfully'
+      dispatch({ type: types.SEND_MAIL, messages: res })
+    }
+    ).catch(err => {
+      cb();
+      dispatch({ type: types.SEND_MAIL, messages: err });
+    }
+    )
+  }
+}
+
+export const saveMail = (mail, cb) => {
+  return async (dispatch) => {
+    return server('messages/save', 'POST', mail).then(res => {
+      cb();
+      if (res.data) res.message = 'Message saved successfully'
+      dispatch({ type: types.DRAFT_MAIL, messages: res })
+    }
+    ).catch(err => {
+      cb();
+      dispatch({ type: types.DRAFT_MAIL, messages: err });
+    }
     )
   }
 }

@@ -27,6 +27,7 @@
         "alias": {
           "@": "./",
           "@src": "./src",
+          "@routes": "./routes",
           "@components": "./src/components",
           "@hocs": "./src/hocs",
           "@views": "./src/views",

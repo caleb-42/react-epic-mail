@@ -1,0 +1,44 @@
+.customModal{
+  @apply overflow-y-auto;
+}
+div.modal{
+  header {
+    h2{
+      @apply font-semibold text-xl text-green-600;
+    }
+  }
+  .contactOptions{
+    @apply flex justify-around;
+  }
+  span.input-group {
+    label{
+      @apply ml-2;
+    }
+  }
+  div.input-group {
+    @apply mb-4;
+    label{
+      @apply mb-2 text-gray-600 font-semibold;
+    }
+    input, textarea{
+      border: .08rem solid rgba(0, 0, 0, .4);
+      border-radius: .4rem;
+      @apply text-sm text-center w-full;
+      max-height: 8rem;
+      padding: .3rem .5rem;
+    }
+  }
+  .action {
+    @apply text-center mx-auto mt-8 flex justify-around;
+    span{
+      @apply relative w-24;
+      button{
+        @apply bg-green-600 w-24 h-10 rounded-lg text-white font-semibold;
+      }
+      .loader{
+        @apply absolute inset-0 w-full;
+      }
+      
+    }
+  }
+}

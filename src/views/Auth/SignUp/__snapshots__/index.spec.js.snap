@@ -91,7 +91,7 @@ exports[`SIGN UP SNAPSHOT TEST Sign up page 1`] = `
           className="px-10 my-10"
         >
           <div
-            className="flex input-group items-center"
+            className="flex undefined input-group items-center"
           >
             <label
               htmlFor="firstName"
@@ -107,7 +107,7 @@ exports[`SIGN UP SNAPSHOT TEST Sign up page 1`] = `
             />
           </div>
           <div
-            className="flex input-group items-center"
+            className="flex undefined input-group items-center"
           >
             <label
               htmlFor="lastName"
@@ -123,7 +123,7 @@ exports[`SIGN UP SNAPSHOT TEST Sign up page 1`] = `
             />
           </div>
           <div
-            className="flex input-group items-center"
+            className="flex undefined input-group items-center"
           >
             <label
               htmlFor="email"
@@ -140,7 +140,7 @@ exports[`SIGN UP SNAPSHOT TEST Sign up page 1`] = `
             />
           </div>
           <div
-            className="flex input-group items-center"
+            className="flex undefined input-group items-center"
           >
             <label
               htmlFor="recoveryEmail"
@@ -156,7 +156,7 @@ exports[`SIGN UP SNAPSHOT TEST Sign up page 1`] = `
             />
           </div>
           <div
-            className="flex input-group items-center"
+            className="flex undefined input-group items-center"
           >
             <label
               htmlFor="password"
@@ -172,7 +172,7 @@ exports[`SIGN UP SNAPSHOT TEST Sign up page 1`] = `
             />
           </div>
           <div
-            className="flex input-group items-center"
+            className="flex undefined input-group items-center"
           >
             <label
               htmlFor="confirmPassword"
@@ -213,5 +213,8 @@ exports[`SIGN UP SNAPSHOT TEST Sign up page 1`] = `
       </h3>
     </footer>
   </div>
+  <div
+    className="Toastify"
+  />
 </div>
 `;

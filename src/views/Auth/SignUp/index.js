@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import PropTypes from 'prop-types';
-import Form from "../../../components/Forms/AuthForm";
-import Nav from "../../../components/NavBar";
+import Form from "@components/Forms/AuthForm";
+import Nav from "@components/NavBar";
 import "../index.scss";
-import Footer from "../../../components/Footer";
-import { signUpUser } from "../../../redux/actions/authActions";
+import Footer from "@components/Footer";
+import { signUpUser } from "@redux/actions/authActions";
 
 export const SignUp = ({ history, signUpUser, auth }) => {
   const [user, setUser] = useState({});
