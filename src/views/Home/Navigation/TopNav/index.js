@@ -1,23 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const TopNav = ({ navs }) => {
+const TopNav = ({ navs, activeNav, navigate }) => {
   return (
-    <ul className="top-nav navig w-100 anim">
+    <ul className={`appNav top-nav ${activeNav.open || 'hide'} navig w-full anim bg-gray-800`}>
       {
-        navs.map((nav, navIndex) => {
+        navs.map((nav, navIndex) => (
           <li key={navIndex}>
-            <h3 data-route={nav.route} data-nav={nav.name} className={nav.active ? 'active' : ''}>{nav.label}
-              {nav.menu && <span className="d-arrow img-con anim down"></span>}</h3>
-            {nav.menu && <ul className="mail-types anim w-100 open">
+            <h3 onClick={
+              () => navigate({ menu: nav.name })
+            } className={`${nav.name === activeNav.menu ? 'active' : ''} nav text-white px-12 py-6 text-xl font-semibold`}>{nav.name}</h3>
+            {nav.subNavs && <ul className="mail-types bg-gray-750 anim w-100 open">
               {
-                nav.menu.map((menu, menuIndex) => {
-                  <li key={menuIndex} data-route={menu.route} data-parent-nav={nav.name} data-nav={menu.name} className={menu.active ? 'active' : ''}>Inbox</li>
-                })
+                Object.values(nav.subNavs).map((subNav, subNavIndex) => (
+                  <li onClick={
+                    () => navigate({
+                      menu: nav.name,
+                      subMenu: subNav
+                    })
+                  } key={subNavIndex} className={`${subNav === activeNav.subMenu ? 'active' : 'text-white'} subnav px-12 py-4 text-md`}>{subNav}</li>
+                ))
               }
             </ul>}
           </li>
-        })
+        ))
       }
     </ul>
   );
@@ -25,6 +31,8 @@ const TopNav = ({ navs }) => {
 
 TopNav.propTypes = {
   navs: PropTypes.array,
+  activeNav: PropTypes.object,
+  navigate: PropTypes.func,
 }
 
 export default TopNav;

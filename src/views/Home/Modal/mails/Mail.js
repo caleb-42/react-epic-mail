@@ -5,16 +5,16 @@ import TextInput from '@components/Inputs/TextInput';
 import RadioInput from '@components/Inputs/RadioInput';
 import SubmitBtn from '@components/ActionBtn';
 import callToast from '@components/Toast';
-import { sendMail, clearResponse, saveMail } from "@redux/actions/mailActions";
+import { sendMail, clearMailResponse, saveMail } from "@redux/actions/mailActions";
 import { addMailInputs as inputs } from './inputs';
 
 
 // eslint-disable-next-line import/prefer-default-export
-export const NewMailModal = ({ response, sendMail, clearResponse, saveMail }) => {
+export const NewMailModal = ({ response, sendMail, clearMailResponse, saveMail }) => {
   React.useEffect(() => {
     if (response.error) callToast(response.error, 'error');
     else if (response.message) callToast(response.message, 'success');
-    clearResponse();
+    clearMailResponse();
   }, [response])
 
 
@@ -109,6 +109,6 @@ function mapStateToProps(state) {
   }
 }
 
-const matchDispatchToProps = { sendMail, clearResponse, saveMail }
+const matchDispatchToProps = { sendMail, clearMailResponse, saveMail }
 
 export default connect(mapStateToProps, matchDispatchToProps)(NewMailModal);

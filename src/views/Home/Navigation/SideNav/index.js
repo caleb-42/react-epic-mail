@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const SideNav = ({ navs, navigate, activeNav }) => {
-  console.log(activeNav);
   return (
     <aside className="appNav side-nav h-screen bg-gray-800 w-1/5">
       <div className="logo"></div>

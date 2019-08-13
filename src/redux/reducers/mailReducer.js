@@ -13,8 +13,10 @@ export default function mailReducer(state = mails, action) {
       return { ...state, active: action.active, loading: false };
     case types.CLEAR_MAIL:
       return { ...state, ...mails, messages: {}, loading: true };
-    case types.CLEAR_RESPONSE:
+    case types.CLEAR_MAIL_RESPONSE:
       return { ...state, response: mails.response };
+    case types.CLEAR_ACTIVE_MAIL:
+      return { ...state, active: mails.active };
     default:
       return state;
   }

@@ -2,10 +2,15 @@
 
 exports[`SNAPSHOT TEST Header Component 1`] = `
 <div
-  className=" flex header py-4 px-8 h-16"
+  className="  flex relative z-20 header py-4 px-8 h-16"
 >
+  <a
+    className="logo"
+    href="#"
+  />
   <div
     className="backbtn"
+    onClick={[Function]}
   />
   <h1
     className="text-2xl text-white font-semibold self-center"
@@ -13,8 +18,18 @@ exports[`SNAPSHOT TEST Header Component 1`] = `
   >
     Inbox
   </h1>
-  <div
-    className="navicon img-con"
-  />
+  <button
+    className="hamburger hamburger--collapse "
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="hamburger-box"
+    >
+      <span
+        className="hamburger-inner"
+      />
+    </span>
+  </button>
 </div>
 `;

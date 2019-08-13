@@ -1,13 +1,17 @@
 import { server } from '@src/utils';
 import * as types from './actionTypes';
-import navigate from './navActions';
+import { navigate } from './navActions';
 
 export const clearMail = () => {
   return { type: types.CLEAR_MAIL }
 }
 
-export const clearResponse = () => {
-  return { type: types.CLEAR_RESPONSE }
+export const clearMailResponse = () => {
+  return { type: types.CLEAR_MAIL_RESPONSE }
+}
+
+export const clearActiveMail = () => {
+  return { type: types.CLEAR_ACTIVE_MAIL }
 }
 
 export const getSingleMail = active => {

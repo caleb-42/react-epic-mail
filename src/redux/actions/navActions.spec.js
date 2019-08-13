@@ -1,6 +1,6 @@
 import { activeNav } from '@redux/reducers/initialState';
 import { NAVIGATE } from './actionTypes';
-import navAction from './navActions';
+import { navigate } from './navActions';
 
 
 describe('NAVIGATE ACTION', () => {
@@ -8,10 +8,10 @@ describe('NAVIGATE ACTION', () => {
     const expectedAction = {
       type: NAVIGATE,
       activeNav: {
-        menu: 'Mails', subMenu: 'Inbox'
+        menu: 'Mails', subMenu: 'Inbox', open: false
       }
     };
-    const action = navAction(activeNav);
+    const action = navigate(activeNav);
     expect(action).toEqual(expectedAction);
   })
 })

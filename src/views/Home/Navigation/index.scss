@@ -1,15 +1,24 @@
 .appNav {
   &.side-nav {
-    @apply inline-block;
+    @apply inline-block relative z-20;
     .logo {
       @apply relative;
       left: 3rem;
       top:2rem;
     }
+    @media  (max-width: 992px) {
+      @apply hidden;
+    }
   }
 
   &.top-nav {
-    
+    @apply hidden;
+    @media  (max-width: 992px) {
+      @apply block;
+    }
+    &.hide{
+      margin-top: -29rem;
+    }
   }
   
   h3.active{
