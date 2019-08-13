@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import { cleanup, render, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from 'react-router-dom';
 import { Provider as ReduxProvider } from "react-redux";
-import App from "@src/app";
+import App from "@routes/app";
 import configureStore from "@redux/configureStore";
 import { SignUp } from './index'
 

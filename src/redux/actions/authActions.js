@@ -5,6 +5,8 @@ export function signUp(signUp) {
   return { type: types.SIGN_UP, signUp }
 }
 
+export const setUpUser = payload => ({ type: types.SETUP_USER, payload });
+
 export function logIn(logIn) {
   return { type: types.LOG_IN, logIn }
 }
@@ -25,6 +27,15 @@ export function signUpUser(user, cb) {
     })
   }
 }
+
+export const getUser = () => (dispatch) => {
+  /* istanbul ignore next */
+  if (localStorage.user) {
+    let user = localStorage.getItem('user');
+    user = JSON.parse(user);
+    dispatch(setUpUser(user));
+  }
+};
 
 export function logInUser(user, cb) {
   return (dispatch) => {

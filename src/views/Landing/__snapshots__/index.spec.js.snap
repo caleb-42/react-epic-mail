@@ -330,5 +330,8 @@ exports[`Landing page 1`] = `
       </h3>
     </footer>
   </div>
+  <div
+    className="Toastify"
+  />
 </div>
 `;

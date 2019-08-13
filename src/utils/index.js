@@ -5,7 +5,7 @@ export const server = (url = '', method = '', body = {}) => {
   if (token) contentType['x-auth-token'] = token;
   const payload = {
     method,
-    headers: contentType,
+    headers: contentType
   };
   if (method !== 'GET') payload.body = body;
   const endpoint = `${process.env.APP_URL}${url}`;
