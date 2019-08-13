@@ -3,10 +3,13 @@
   .tab{
     @apply h-full w-full;
     .left-body{
+      margin-left: 0;
       @apply w-full;
     }
     &.post-active .left-body{
-      @apply w-0;
+      @media  (max-width: 992px) {
+        margin-left: -100%;
+      }
     }
     .right-body{
       @apply w-0;
@@ -14,12 +17,12 @@
     &.post-active .right-body{
       @apply w-full py-0;
     }
-    @media  (min-width: 768px) {
+    @media  (min-width: 992px) {
       @apply flex;
     }
     .left-body.tab-content, .right-body.tab-content{
       @apply h-full inline-block;
-      @media (min-width: 768px) {
+      @media (min-width: 992px) {
         @apply w-2/4;
       }
     }
@@ -36,8 +39,7 @@
     }
     &.post-active .post {
       @apply p-4;
-      @media (max-width: 768px) {
-        @apply p-0;
+      @media (max-width: 992px) {
         visibility: hidden;
         opacity: 0;
       }

@@ -56,5 +56,6 @@ export const navs = [
 ]
 
 export const activeNav = {
-  menu: 'Mails', subMenu: 'Inbox'
+  menu: 'Mails', subMenu: 'Inbox',
+  open: false
 }

@@ -23,8 +23,6 @@ export const Home = ({ history }) => {
         <Header className="w-full" />
         <Nav position="top" />
         <Tabs className="flex-grow" />
-        {/* <a className="anim newMail img-cov wht modalopen" data-action="send" data-modal="#newMailModal">
-        </a> */}
       </div>
       <button onClick={(payload = { kind: 'newmail' }) => openModal(payload)} type="button" className="anim newMail"></button>
       <Modal payload={modal.payload} open={modal.open} onCloseModal={() => setModal({ ...modal, open: false })} />

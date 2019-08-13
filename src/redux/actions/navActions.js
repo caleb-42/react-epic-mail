@@ -1,5 +1,9 @@
 import * as types from './actionTypes'
 
-export default function navigate(activeNav) {
+export const navigate = (activeNav) => {
   return { type: types.NAVIGATE, activeNav };
+}
+
+export const toggleNavigation = (open) => {
+  return { type: types.TOGGLE_NAVIGATION, open };
 }
