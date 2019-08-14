@@ -6,6 +6,7 @@ import { deleteMail } from '../../../../../redux/actions/mailActions';
 const MailPostBloated = ({ mail, user, mailAction, modalAction }) => {
 
   const [deleting, setDeleting] = React.useState(false);
+  const [sending, setSending] = React.useState(false);
 
   return !mail.email ? <div></div>
     : (
@@ -15,6 +16,23 @@ const MailPostBloated = ({ mail, user, mailAction, modalAction }) => {
         <h5 className="email">{mail.email}</h5>
         <p className="subject">{mail.subject}</p>
         <div className="mailActionBtns mb-3">
+          {
+            mail.status === 'draft' &&
+            <SubmitBtn
+              className="sendDraftMail"
+              disabled={sending}
+              saving={sending}
+              onClick={() => {
+                setSending(true);
+                mailAction.sendDraftMail(mail,
+                  () => {
+                    setSending(false)
+                  }
+                )
+              }}
+              title="Send"
+            />
+          }
           {
             user.id === mail.senderid &&
             <SubmitBtn
