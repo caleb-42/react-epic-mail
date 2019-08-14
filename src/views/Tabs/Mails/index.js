@@ -37,12 +37,12 @@ const Mails = ({ mails, mailAction, modalAction, user, activeNav }) => {
     else if (!data && !mails.loading) return <Error error={mails.messages.error} />;
     if (!data.length) return <Error error="Empty" />;
     return data.map((mail, index) => (
-      <Post key={mail.id} index={index} className={`${active.id === mail.id ? 'active' : ''} ${active.id && active.id !== mail.id ? 'inactive' : ''}`} click={() => mailAction.getSingleMail(mail)} mail={mail} />
+      <Post key={mail.id} index={index} className={`${(active.id === mail.id) ? 'active' : ''} ${active.id && active.id !== mail.id ? 'inactive' : ''}`} click={() => mailAction.getSingleMail(mail)} mail={mail} />
     ));
   }
 
   return (
-    <div className={`mails tab anim ${active.id ? 'post-active' : ''}`}>
+    <div className={`mails tab anim ${(Object.keys(active).length > 0) ? 'post-active' : ''}`}>
       <div className="left-body anim-ease tab-content">
         <div className="content-wrapper">
           {showMails()}

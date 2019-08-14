@@ -17,10 +17,12 @@
       @apply block;
     }
     &.hide{
-      margin-top: -29rem;
+      margin-top: -34rem;
     }
   }
-  
+  li{
+    @apply cursor-pointer;
+  }
   h3.active{
     @apply bg-gray-900;
   }

@@ -2,6 +2,7 @@ export const auth = {
   signUp: {},
   logIn: {},
   isAuthenticated: false,
+  isSettingAuth: true,
   user: {}
 }
 
@@ -21,7 +22,8 @@ export const mails = {
   active: {
 
   },
-  loading: false
+  loading: false,
+  subLoading: false
 };
 
 export const navs = [
@@ -39,6 +41,9 @@ export const navs = [
   },
   {
     name: 'Settings'
+  },
+  {
+    name: 'Sign Out'
   },
 ]
 

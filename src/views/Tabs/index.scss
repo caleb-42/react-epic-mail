@@ -4,7 +4,7 @@
     @apply h-full w-full;
     .left-body{
       margin-left: 0;
-      @apply w-full;
+      @apply w-full align-top;
     }
     &.post-active .left-body{
       @media  (max-width: 992px) {

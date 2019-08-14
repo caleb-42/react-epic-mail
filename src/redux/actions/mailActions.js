@@ -15,7 +15,11 @@ export const clearActiveMail = () => {
 }
 
 export const getSingleMail = active => {
-  return { type: types.GET_SINGLE_MAIL, active }
+  return async (dispatch) => {
+    dispatch(clearActiveMail());
+    dispatch({ type: types.GET_SINGLE_MAIL, active: active })
+    return server(`messages/${active.id}`, 'GET', {})
+  }
 }
 
 export const getInbox = activeNav => {
@@ -35,7 +39,6 @@ export const getMails = activeNav => {
     dispatch(navigate(activeNav));
     dispatch(clearMail());
     return server('messages/all', 'GET', {}).then(res => {
-      console.log(res);
       dispatch({ type: types.GET_MAILS, messages: res });
     }
     ).catch(err =>
@@ -57,7 +60,6 @@ export const getUnread = activeNav => {
 }
 
 export const getSent = activeNav => {
-  console.log('dddd');
   return (dispatch) => {
     dispatch(navigate(activeNav));
     dispatch(clearMail());
@@ -133,11 +135,11 @@ export const deleteMail = (type, mail, cb) => {
     return server(`messages/${mail.id}`, 'DELETE').then(res => {
       cb();
       if (res.data) res.message = `Message ${type} successfully`;
-      dispatch({ type: types.UPDATE_MAIL, messages: res })
+      dispatch({ type: types.DELETE_MAIL, messages: res })
     }
     ).catch(err => {
       cb();
-      dispatch({ type: types.UPDATE_MAIL, messages: err });
+      dispatch({ type: types.DELETE_MAIL, messages: err });
     }
     )
   }
@@ -147,7 +149,7 @@ export const sendDraftMail = (mail, cb) => {
   return async (dispatch) => {
     return server(`messages/${mail.id}`, 'POST').then(res => {
       cb();
-      if (res.data) res.message = `Message Sent successfully`;
+      if (res.data) res.message = `Message sent successfully`;
       dispatch({ type: types.SEND_DRAFT_MAIL, messages: res })
     }
     ).catch(err => {

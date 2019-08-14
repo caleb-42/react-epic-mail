@@ -9,7 +9,7 @@
   .post-bloated{
     @apply flex justify-center flex-col;
     .subject{
-      @apply text-center my-8 text-xl opacity-50;
+      @apply text-center my-4 text-xl opacity-50;
     }
     .name{
       @apply text-center mt-2 text-green-500 text-xl font-semibold;
