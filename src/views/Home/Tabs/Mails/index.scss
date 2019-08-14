@@ -24,7 +24,21 @@
       @apply text-justify text-sm opacity-50 my-1;
     }
     .updateMail{
-      @apply bg-blue-500 font-semibold text-white px-3 py-2 rounded-sm;
+      @apply bg-blue-500;
+    }
+    .deleteMail{
+      @apply bg-red-500;
+    }
+    .mailActionBtns{
+      @apply flex justify-around;
+      button {
+        @apply font-semibold text-sm text-white px-3 py-2;
+        border-radius: .3rem;
+      }
+      .loader{
+        width: 4rem;
+        height: 2rem;
+      }
     }
   }
   .details{

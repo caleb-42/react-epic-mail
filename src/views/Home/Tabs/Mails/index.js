@@ -14,17 +14,10 @@ import './index.scss';
 const Mails = ({ mails, mailAction, modalAction, user, activeNav }) => {
   const nav = activeNav.subMenu || activeNav.menu;
   const { response } = mails;
+
   React.useEffect(() => {
     mailAction.getInbox(activeNav);
   }, []);
-  React.useEffect(() => {
-    if (response.error) callToast(response.error, 'error');
-    else if (response.message) {
-      callToast(response.message, 'success');
-      mailAction[`get${nav}`](activeNav);
-      mailAction.clearMailResponse();
-    }
-  }, [response]);
 
   React.useEffect(() => {
     if (response.error) callToast(response.error, 'error');

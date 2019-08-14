@@ -11,17 +11,7 @@ import { addMailInputs as inputs } from './inputs';
 
 
 // eslint-disable-next-line import/prefer-default-export
-export const NewMailModal = ({ response, actions, activeNav }) => {
-  React.useEffect(() => {
-    if (response.error) callToast(response.error, 'error');
-    else if (response.message) {
-      callToast(response.message, 'success');
-      const nav = activeNav.subMenu || activeNav.menu;
-      actions[`get${nav}`](activeNav);
-    }
-    actions.clearMailResponse();
-  }, [response])
-
+export const NewMailModal = ({ response, actions }) => {
 
   const [values, setValues] = React.useState({
     msgTo: 'stranger'
@@ -110,8 +100,7 @@ NewMailModal.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    response: state.mails.response,
-    activeNav: state.activeNav,
+    response: state.mails.response
   }
 }
 
