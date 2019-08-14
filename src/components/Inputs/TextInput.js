@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const TextInput = ({ required, position, name, label, onChange, placeholder, type, rows }) => {
+const TextInput = ({ value, required, position, name, label, onChange, placeholder, type, rows }) => {
   return (
     <>
       <div className={`flex ${position} input-group items-center`}>
@@ -15,6 +15,7 @@ const TextInput = ({ required, position, name, label, onChange, placeholder, typ
               required={required}
               name={name}
               className="input"
+              value={value}
               placeholder={placeholder}
               onChange={onChange}
             />
@@ -22,6 +23,7 @@ const TextInput = ({ required, position, name, label, onChange, placeholder, typ
               type={type}
               required={required}
               name={name}
+              value={value}
               className="input"
               placeholder={placeholder}
               onChange={onChange}

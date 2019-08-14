@@ -4,12 +4,38 @@ import { bindActionCreators } from "redux";
 import PropTypes from 'prop-types';
 import Error from '@components/Error';
 import Loader from '@components/Loader';
+import callToast from '@components/Toast';
 import * as mailActions from "@redux/actions/mailActions";
+import * as modalActions from "@redux/actions/modalActions";
 import Post from './partitions/mailPost';
 import PostBloated from './partitions/mailPostBloated';
 import './index.scss';
 
-const Mails = ({ mails, actions }) => {
+const Mails = ({ mails, mailAction, modalAction, user, activeNav }) => {
+  const nav = activeNav.subMenu || activeNav.menu;
+  const { response } = mails;
+  React.useEffect(() => {
+    mailAction.getInbox(activeNav);
+  }, []);
+  React.useEffect(() => {
+    if (response.error) callToast(response.error, 'error');
+    else if (response.message) {
+      callToast(response.message, 'success');
+      mailAction[`get${nav}`](activeNav);
+      mailAction.clearMailResponse();
+    }
+  }, [response]);
+
+  React.useEffect(() => {
+    if (response.error) callToast(response.error, 'error');
+    else if (response.message) {
+      callToast(response.message, 'success');
+      mailAction[`get${nav}`](activeNav);
+      mailAction.clearMailResponse();
+    }
+  }, [response]);
+
+
   const data = mails.messages.data;
   const { active } = mails;
 
@@ -18,7 +44,7 @@ const Mails = ({ mails, actions }) => {
     else if (!data && !mails.loading) return <Error error={mails.messages.error} />;
     if (!data.length) return <Error error="Empty" />;
     return data.map((mail, index) => (
-      <Post key={mail.id} index={index} className={`${active.id === mail.id ? 'active' : ''} ${active.id && active.id !== mail.id ? 'inactive' : ''}`} click={() => actions.getSingleMail(mail)} mail={mail} />
+      <Post key={mail.id} index={index} className={`${active.id === mail.id ? 'active' : ''} ${active.id && active.id !== mail.id ? 'inactive' : ''}`} click={() => mailAction.getSingleMail(mail)} mail={mail} />
     ));
   }
 
@@ -31,7 +57,7 @@ const Mails = ({ mails, actions }) => {
       </div>
       <div className="right-body anim-ease tab-content">
         <div className="content-wrapper-bloated">
-          <PostBloated actions={actions} mail={active} />
+          <PostBloated user={user} modalAction={modalAction} mailAction={mailAction} mail={active} />
         </div>
       </div>
     </div>
@@ -40,17 +66,21 @@ const Mails = ({ mails, actions }) => {
 
 Mails.propTypes = {
   mails: PropTypes.object,
-  actions: PropTypes.object,
+  mailAction: PropTypes.object,
+  activeNav: PropTypes.object,
 }
 
 function mapStateToProps(state) {
   return {
     mails: state.mails,
+    activeNav: state.activeNav,
+    user: state.auth.user,
   }
 }
 
 const matchDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(mailActions, dispatch),
+  mailAction: bindActionCreators(mailActions, dispatch),
+  modalAction: bindActionCreators(modalActions, dispatch)
 })
 
 export default connect(mapStateToProps, matchDispatchToProps)(Mails);

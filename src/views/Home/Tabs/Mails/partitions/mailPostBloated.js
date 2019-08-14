@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SubmitBtn from '@components/ActionBtn';
 
-const MailPostBloated = ({ mail }) => {
+const MailPostBloated = ({ mail, user, mailAction, modalAction }) => {
   return !mail.email ? <div></div>
     : (
       <div className="post-bloated">
@@ -9,6 +10,24 @@ const MailPostBloated = ({ mail }) => {
         <h3 className="name">{`${mail.firstname} ${mail.lastname}`}</h3>
         <h5 className="email">{mail.email}</h5>
         <p className="subject">{mail.subject}</p>
+        <div className="mailActionBtns mb-3">
+          {
+            user.id === mail.senderid &&
+            <SubmitBtn
+              className="updateMail"
+              disabled={false}
+              saving={false}
+              onClick={() => modalAction.toggleModal({
+                open: true,
+                payload: {
+                  kind: 'updateMail',
+                  data: mail
+                }
+              })}
+              title="Update"
+            />
+          }
+        </div>
         <div className='bodyhead'>
           <span className="status">{mail.status}</span>
           <p className="timestamp">{mail.senttime}</p>
