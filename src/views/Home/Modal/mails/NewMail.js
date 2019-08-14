@@ -1,20 +1,25 @@
 import React from 'react';
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import PropTypes from 'prop-types';
 import TextInput from '@components/Inputs/TextInput';
 import RadioInput from '@components/Inputs/RadioInput';
 import SubmitBtn from '@components/ActionBtn';
 import callToast from '@components/Toast';
-import { sendMail, clearMailResponse, saveMail } from "@redux/actions/mailActions";
+import * as mailActions from "@redux/actions/mailActions";
 import { addMailInputs as inputs } from './inputs';
 
 
 // eslint-disable-next-line import/prefer-default-export
-export const NewMailModal = ({ response, sendMail, clearMailResponse, saveMail }) => {
+export const NewMailModal = ({ response, actions, activeNav }) => {
   React.useEffect(() => {
     if (response.error) callToast(response.error, 'error');
-    else if (response.message) callToast(response.message, 'success');
-    clearMailResponse();
+    else if (response.message) {
+      callToast(response.message, 'success');
+      const nav = activeNav.subMenu || activeNav.menu;
+      actions[`get${nav}`](activeNav);
+    }
+    actions.clearMailResponse();
   }, [response])
 
 
@@ -79,7 +84,7 @@ export const NewMailModal = ({ response, sendMail, clearMailResponse, saveMail }
               className="sendBtn"
               title="send"
               disabled={draftSaving || sendSaving}
-              onClick={e => handleSubmit(e, setSendSaving, sendMail)}
+              onClick={e => handleSubmit(e, setSendSaving, actions.sendMail)}
               saving={sendSaving}
             />
           </span>
@@ -88,7 +93,7 @@ export const NewMailModal = ({ response, sendMail, clearMailResponse, saveMail }
               className="sendBtn"
               title="save"
               disabled={draftSaving || sendSaving}
-              onClick={e => handleSubmit(e, setDraftSaving, saveMail)}
+              onClick={e => handleSubmit(e, setDraftSaving, actions.saveMail)}
               saving={draftSaving}
             />
           </span>
@@ -106,9 +111,12 @@ NewMailModal.propTypes = {
 function mapStateToProps(state) {
   return {
     response: state.mails.response,
+    activeNav: state.activeNav,
   }
 }
 
-const matchDispatchToProps = { sendMail, clearMailResponse, saveMail }
+const matchDispatchToProps = (dispatch) => ({
+  actions: bindActionCreators(mailActions, dispatch)
+})
 
 export default connect(mapStateToProps, matchDispatchToProps)(NewMailModal);

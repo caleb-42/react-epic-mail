@@ -3,6 +3,8 @@ import { mails } from './initialState';
 
 export default function mailReducer(state = mails, action) {
   switch (action.type) {
+    case types.UPDATE_MAIL:
+      return { ...state, response: action.messages };
     case types.DRAFT_MAIL:
       return { ...state, response: action.messages };
     case types.SEND_MAIL:

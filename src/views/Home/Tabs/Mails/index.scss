@@ -23,6 +23,9 @@
     .content{
       @apply text-justify text-sm opacity-50 my-1;
     }
+    .updateMail{
+      @apply bg-blue-500 font-semibold text-white px-3 py-2 rounded-sm;
+    }
   }
   .details{
     @apply flex-grow flex flex-col pl-4;

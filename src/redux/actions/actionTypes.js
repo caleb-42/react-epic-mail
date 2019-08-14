@@ -1,6 +1,7 @@
 export const CREATE_MAIL = 'CREATE_MAIL';
 export const SIGN_UP = 'SIGN_UP';
 export const LOG_IN = 'LOG_IN';
+export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const GET_MAILS = 'GET_MAILS';
 export const GET_GROUPS = 'GET_GROUPS';
 export const NAVIGATE = 'NAVIGATE';
@@ -11,4 +12,5 @@ export const DRAFT_MAIL = 'DRAFT_MAIL';
 export const CLEAR_MAIL_RESPONSE = 'CLEAR_MAIL_RESPONSE';
 export const CLEAR_ACTIVE_MAIL = 'CLEAR_ACTIVE_MAIL';
 export const SETUP_USER = 'SETUP_USER';
+export const UPDATE_MAIL = 'UPDATE_MAIL';
 export const TOGGLE_NAVIGATION = 'TOGGLE_NAVIGATION';

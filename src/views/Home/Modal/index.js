@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactModal from 'react-responsive-modal';
-import NewMail from './mails/Mail';
+import NewMail from './mails/NewMail';
+import UpdateMail from './mails/UpdateMail';
 import './index.scss';
 
 const Modal = ({ payload, open, onCloseModal }) => {
   const modal = () => {
     switch (payload.kind) {
-      case 'newmail':
+      case 'newMail':
         return <NewMail />;
+      case 'updateMail':
+        return <UpdateMail data={payload.data} />;
       default:
         return <NewMail />;
     }

@@ -34,8 +34,10 @@ export const getMails = activeNav => {
   return async (dispatch) => {
     dispatch(navigate(activeNav));
     dispatch(clearMail());
-    return server('messages/all', 'GET', {}).then(res =>
-      dispatch({ type: types.GET_MAILS, messages: res })
+    return server('messages/all', 'GET', {}).then(res => {
+      console.log(res);
+      dispatch({ type: types.GET_MAILS, messages: res });
+    }
     ).catch(err =>
       dispatch({ type: types.GET_MAILS, messages: err })
     )
@@ -55,6 +57,7 @@ export const getUnread = activeNav => {
 }
 
 export const getSent = activeNav => {
+  console.log('dddd');
   return (dispatch) => {
     dispatch(navigate(activeNav));
     dispatch(clearMail());
@@ -103,6 +106,23 @@ export const saveMail = (mail, cb) => {
     ).catch(err => {
       cb();
       dispatch({ type: types.DRAFT_MAIL, messages: err });
+    }
+    )
+  }
+}
+
+export const updateMail = (mail, cb) => {
+  const id = mail.id;
+  delete mail.id;
+  return async (dispatch) => {
+    return server(`messages/${id}`, 'PATCH', mail).then(res => {
+      cb();
+      if (res.data) res.message = 'Message updated successfully';
+      dispatch({ type: types.UPDATE_MAIL, messages: res })
+    }
+    ).catch(err => {
+      cb();
+      dispatch({ type: types.UPDATE_MAIL, messages: err });
     }
     )
   }
