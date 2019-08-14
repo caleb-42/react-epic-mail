@@ -2,7 +2,8 @@ import fetchMock from 'fetch-mock';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { auth } from '@redux/reducers/initialState';
-import { SIGN_UP, LOG_IN } from './actionTypes';
+import { storeUser } from '@utils';
+import { SIGN_UP, LOG_IN, SETUP_USER } from './actionTypes';
 import * as authActions from './authActions';
 
 const middleware = [thunk];
@@ -29,6 +30,20 @@ describe('ASYNC AUTH ACTIONS', () => {
     return store.dispatch(res).then(() => {
       expect(store.getActions()).toEqual(expectedAction);
     });
+  })
+
+  it('should carry out USER SETUP call after authenticating user', () => {
+
+    const expectedActions = ['SETUP_USER'];
+    storeUser({
+      id: 1,
+      name: 'ewere'
+    });
+    const store = mockStore({ auth });
+    store.dispatch(authActions.getUser());
+    const dispatchedActions = store.getActions();
+    const actionTypes = dispatchedActions.map(action => action.type);
+    expect(actionTypes).toEqual(expectedActions);
   })
 
   it('should call catch if LOG_IN API call fails when signing In user', () => {
@@ -96,6 +111,16 @@ describe('AUTH ACTIONS', () => {
       signUp
     };
     const action = authActions.signUp(signUp);
+    expect(action).toEqual(expectedAction);
+  })
+
+  it('should create a SETUP USER action', () => {
+    const { user } = auth;
+    const expectedAction = {
+      type: SETUP_USER,
+      payload: user
+    };
+    const action = authActions.setUpUser(user);
     expect(action).toEqual(expectedAction);
   })
 })

@@ -29,6 +29,9 @@
     .deleteMail{
       @apply bg-red-500;
     }
+    .sendDraftMail{
+      @apply bg-green-500;
+    }
     .mailActionBtns{
       @apply flex justify-around;
       button {

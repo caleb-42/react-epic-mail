@@ -8,6 +8,7 @@ export const NAVIGATE = 'NAVIGATE';
 export const CLEAR_MAIL = 'CLEAR_MAIL';
 export const GET_SINGLE_MAIL = 'GET_SINGLE_MAIL';
 export const SEND_MAIL = 'SEND_MAIL';
+export const SEND_DRAFT_MAIL = 'SEND_DRAFT_MAIL';
 export const DRAFT_MAIL = 'DRAFT_MAIL';
 export const CLEAR_MAIL_RESPONSE = 'CLEAR_MAIL_RESPONSE';
 export const CLEAR_ACTIVE_MAIL = 'CLEAR_ACTIVE_MAIL';

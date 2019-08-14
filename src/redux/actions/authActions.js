@@ -1,4 +1,4 @@
-import { server, storeUser } from '@src/utils';
+import { server, storeUser, getUser as extractUser } from '@src/utils';
 import * as types from './actionTypes';
 
 export function signUp(signUp) {
@@ -31,8 +31,7 @@ export function signUpUser(user, cb) {
 export const getUser = () => (dispatch) => {
   /* istanbul ignore next */
   if (localStorage.user) {
-    let user = localStorage.getItem('user');
-    user = JSON.parse(user);
+    let user = extractUser();
     dispatch(setUpUser(user));
   }
 };

@@ -142,3 +142,18 @@ export const deleteMail = (type, mail, cb) => {
     )
   }
 }
+
+export const sendDraftMail = (mail, cb) => {
+  return async (dispatch) => {
+    return server(`messages/${mail.id}`, 'POST').then(res => {
+      cb();
+      if (res.data) res.message = `Message Sent successfully`;
+      dispatch({ type: types.SEND_DRAFT_MAIL, messages: res })
+    }
+    ).catch(err => {
+      cb();
+      dispatch({ type: types.SEND_DRAFT_MAIL, messages: err });
+    }
+    )
+  }
+}
