@@ -2,7 +2,7 @@
 
 exports[`SNAPSHOT TEST Nav Component with SideBar 1`] = `
 <aside
-  className="appNav side-nav h-screen bg-gray-800 w-1/5"
+  className="appNav side-nav overflow-y-auto h-screen bg-gray-800 w-1/5"
 >
   <div
     className="logo"
@@ -60,6 +60,14 @@ exports[`SNAPSHOT TEST Nav Component with SideBar 1`] = `
         onClick={[Function]}
       >
         Settings
+      </h3>
+    </li>
+    <li>
+      <h3
+        className=" nav text-white px-12 py-6 text-xl font-semibold"
+        onClick={[Function]}
+      >
+        Sign Out
       </h3>
     </li>
   </ul>

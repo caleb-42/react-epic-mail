@@ -4,15 +4,17 @@ import { bindActionCreators } from "redux";
 import PropTypes from 'prop-types';
 import { navs } from '@redux/reducers/initialState';
 import * as mailActions from "@redux/actions/mailActions";
+import * as authActions from "@redux/actions/authActions";
 import SideNav from './SideNav';
 import TopNav from './TopNav';
 import './index.scss';
 
-const Nav = ({ position = 'top', actions, activeNav }) => {
+const Nav = ({ position = 'top', mailActions, authActions, activeNav }) => {
 
   const navigate = (nav) => {
     const action = nav.subMenu || nav.menu
-    actions[`get${action}`](nav);
+    if (nav.menu === 'Sign Out') return authActions.signOut();
+    mailActions[`get${action}`](nav);
   }
 
   return position == 'side' ?
@@ -33,7 +35,8 @@ function mapStateToProps(state) {
 }
 
 const matchDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(mailActions, dispatch),
+  mailActions: bindActionCreators(mailActions, dispatch),
+  authActions: bindActionCreators(authActions, dispatch),
 })
 
 export default connect(mapStateToProps, matchDispatchToProps)(Nav);

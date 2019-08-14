@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 import { toggleModal } from '@redux/actions/modalActions'
 import "./index.scss";
-import Nav from "./Navigation";
-import Tabs from "./Tabs";
-import Header from "./Header";
-import Modal from "./Modal/index";
+import Nav from "../Navigation";
+import Tabs from "../Tabs";
+import Header from "../Header";
+import Modal from "../Modal/index";
 
 export const Home = ({ history, modal, toggleModal }) => {
   const openModal = (e, payload) => {

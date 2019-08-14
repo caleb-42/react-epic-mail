@@ -6,16 +6,17 @@ import "hamburgers/_sass/hamburgers/hamburgers.scss";
 import './index.scss';
 
 const Header = ({
-  className, activeNav, active,
+  className, activeNav, mails,
   toggleNavigation, clearActiveMail
 }) => {
+  const { active } = mails;
   const [navOpen, setNavOpen] = React.useState(false)
   const openNav = () => {
     toggleNavigation(!navOpen);
     setNavOpen(!navOpen)
   }
   return (
-    <div className={`${className} ${active.id ? 'post-active' : ''} flex relative z-20 header py-4 px-8 h-16`}>
+    <div className={`${className} ${(Object.keys(active).length > 0) ? 'post-active' : ''} flex relative z-20 header py-4 px-8 h-16`}>
       <a href="#" className="logo"></a>
       <div className="backbtn" onClick={clearActiveMail}></div>
       <h1 id="tabname" className="text-2xl text-white font-semibold self-center">{activeNav.subMenu || activeNav.menu}</h1>
@@ -31,7 +32,7 @@ const Header = ({
 function mapStateToProps(state) {
   return {
     activeNav: state.activeNav,
-    active: state.mails.active
+    mails: state.mails
   }
 }
 

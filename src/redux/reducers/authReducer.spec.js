@@ -8,19 +8,19 @@ const initialState = {
 
 describe('REDUCERS TEST', () => {
   it('should sign UP user when SIGN_UP action is passed', () => {
-    const signUp = { res: 'you are new' };
-    const action = actions.signUp(signUp);
+    const signUpState = { signUp: { res: 'you are new' } };
+    const action = actions.signUp(signUpState);
 
     const newState = authReducer(initialState, action);
-    expect(newState.signUp).toEqual(signUp);
+    expect(newState.signUp).toEqual(signUpState.signUp);
   })
 
   it('should login user when LOG_IN action is passed', () => {
-    const logIn = { res: 'I know you' };
+    const logInState = { logIn: { res: 'I know you' } };
 
-    const action = actions.logIn(logIn);
+    const action = actions.logIn(logInState);
 
     const newState = authReducer(initialState, action);
-    expect(newState.logIn).toEqual(logIn);
+    expect(newState.logIn).toEqual(logInState.logIn);
   })
 })

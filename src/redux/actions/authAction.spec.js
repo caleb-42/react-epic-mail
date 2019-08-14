@@ -16,13 +16,16 @@ describe('ASYNC AUTH ACTIONS', () => {
 
   it('should send LOG_IN API call when signing In user', () => {
     fetchMock.mock('*', {
-      body: { data: '12345' },
+      body: { data: ['12345'] },
       headers: { 'content-type': 'application/json' }
     })
     const expectedAction = [
       {
         type: LOG_IN,
-        logIn: { data: '12345' }
+        logIn: {
+          logIn: '12345',
+          isAuthenticated: true
+        }
       }
     ];
     const store = mockStore({ auth });
@@ -62,13 +65,16 @@ describe('ASYNC AUTH ACTIONS', () => {
 
   it('should send SIGN_UP API call when signing Up user', () => {
     fetchMock.mock('*', {
-      body: { data: '12345' },
+      body: { data: ['12345'] },
       headers: { 'content-type': 'application/json' }
     })
     const expectedAction = [
       {
         type: SIGN_UP,
-        signUp: { data: '12345' }
+        signUp: {
+          signUp: '12345',
+          isAuthenticated: true
+        }
       }
     ];
     const store = mockStore({ auth });

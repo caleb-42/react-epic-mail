@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SubmitBtn from '@components/ActionBtn';
-import { deleteMail } from '../../../../../redux/actions/mailActions';
 
 const MailPostBloated = ({ mail, user, mailAction, modalAction }) => {
 
@@ -34,7 +33,7 @@ const MailPostBloated = ({ mail, user, mailAction, modalAction }) => {
             />
           }
           {
-            user.id === mail.senderid &&
+            Number(user.id) === Number(mail.senderid) &&
             <SubmitBtn
               className="updateMail"
               disabled={deleting}

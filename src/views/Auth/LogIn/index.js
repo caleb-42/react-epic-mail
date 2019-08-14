@@ -11,12 +11,15 @@ export const LogIn = ({ history, logInUser, auth }) => {
   const [user, setUser] = useState({});
   const [saving, setSaving] = useState(false);
 
+  const login = auth.logIn;
+
+  if (auth.isAuthenticated) history.push('/home');
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setSaving(true);
-    logInUser(user, (res) => {
+    logInUser(user, () => {
       setSaving(false);
-      if (res.data) history.push('/home');
     })
   }
 
@@ -30,7 +33,7 @@ export const LogIn = ({ history, logInUser, auth }) => {
       <Nav className="block w-full" />
       <div className="logIn flexdiv">
         <Form
-          error={auth.error}
+          error={login.error}
           header='Log In'
           button='Sign In'
           saving={saving}
@@ -67,7 +70,7 @@ LogIn.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    auth: state.auth.logIn
+    auth: state.auth
   }
 }
 
