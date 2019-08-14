@@ -1,8 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SubmitBtn from '@components/ActionBtn';
+import { deleteMail } from '../../../../../redux/actions/mailActions';
 
 const MailPostBloated = ({ mail, user, mailAction, modalAction }) => {
+
+  const [deleting, setDeleting] = React.useState(false);
+
   return !mail.email ? <div></div>
     : (
       <div className="post-bloated">
@@ -15,7 +19,7 @@ const MailPostBloated = ({ mail, user, mailAction, modalAction }) => {
             user.id === mail.senderid &&
             <SubmitBtn
               className="updateMail"
-              disabled={false}
+              disabled={deleting}
               saving={false}
               onClick={() => modalAction.toggleModal({
                 open: true,
@@ -27,10 +31,24 @@ const MailPostBloated = ({ mail, user, mailAction, modalAction }) => {
               title="Update"
             />
           }
-        </div>
-        <div className='bodyhead'>
-          <span className="status">{mail.status}</span>
-          <p className="timestamp">{mail.senttime}</p>
+          {
+            <SubmitBtn
+              className="deleteMail"
+              disabled={deleting}
+              saving={deleting}
+              onClick={() => {
+                setDeleting(true);
+                mailAction.deleteMail(
+                  `${user.id === mail.senderid && mail.status === 'unread' ? 'Retracted' : 'Deleted'}`,
+                  mail,
+                  () => {
+                    setDeleting(false)
+                  }
+                )
+              }}
+              title={user.id === mail.senderid && mail.status === 'unread' ? 'Retract' : 'Delete'}
+            />
+          }
         </div>
         <div className="content">
           <p>{mail.message}</p>

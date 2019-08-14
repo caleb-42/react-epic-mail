@@ -127,3 +127,18 @@ export const updateMail = (mail, cb) => {
     )
   }
 }
+
+export const deleteMail = (type, mail, cb) => {
+  return async (dispatch) => {
+    return server(`messages/${mail.id}`, 'DELETE').then(res => {
+      cb();
+      if (res.data) res.message = `Message ${type} successfully`;
+      dispatch({ type: types.UPDATE_MAIL, messages: res })
+    }
+    ).catch(err => {
+      cb();
+      dispatch({ type: types.UPDATE_MAIL, messages: err });
+    }
+    )
+  }
+}
