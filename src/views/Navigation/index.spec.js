@@ -25,6 +25,15 @@ describe('SNAPSHOT TEST', () => {
     );
     expect(tree).toMatchSnapshot();
   });
+
+  it("Nav Component with TopBar", () => {
+    const tree = renderer.create(
+      <ReduxProvider store={store}>
+        <Nav position="top" />
+      </ReduxProvider >
+    );
+    expect(tree).toMatchSnapshot();
+  });
 })
 
 describe('COMPONENT TEST', () => {

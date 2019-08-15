@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import TextInput from '@components/Inputs/TextInput';
 import RadioInput from '@components/Inputs/RadioInput';
 import SubmitBtn from '@components/ActionBtn';
-import callToast from '@components/Toast';
 import * as mailActions from "@redux/actions/mailActions";
 import { addMailInputs as inputs } from './inputs';
 
@@ -21,10 +20,9 @@ export const NewMailModal = ({ response, actions }) => {
   const [draftSaving, setDraftSaving] = React.useState(false);
 
   const handleSubmit = async (event, save, thunk) => {
-    event.preventDefault();
     save(true);
     const newValues = (({ msgTo, ...rest }) => rest)(values);
-    console.log(newValues);
+    console.log(thunk);
     thunk(newValues, () => {
       save(false);
     });
@@ -40,7 +38,7 @@ export const NewMailModal = ({ response, actions }) => {
       <header>
         <h2>New mail</h2>
       </header>
-      <form className="form-hd" onSubmit={handleSubmit} autoComplete="off">
+      <form className="form-hd" autoComplete="off">
         <div className="contactOptions lg:my-12 my-8">
           {
             inputs.radio.map((inp, index) => (

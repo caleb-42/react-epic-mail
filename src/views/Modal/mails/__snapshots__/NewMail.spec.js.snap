@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SNAPSHOT TEST Header Component 1`] = `
+<div
+  className="new-mail"
+>
+  <header>
+    <h2>
+      New mail
+    </h2>
+  </header>
+  <form
+    autoComplete="off"
+    className="form-hd"
+  >
+    <div
+      className="contactOptions lg:my-12 my-8"
+    >
+      <span
+        className="input-group"
+      >
+        <input
+          checked={true}
+          id="stranger"
+          name="msgTo"
+          onChange={[Function]}
+          type="radio"
+          value="stranger"
+        />
+        <label
+          className=""
+          htmlFor="stranger"
+        >
+          Stranger
+        </label>
+      </span>
+      <span
+        className="input-group"
+      >
+        <input
+          checked={false}
+          id="contact"
+          name="msgTo"
+          onChange={[Function]}
+          type="radio"
+          value="contact"
+        />
+        <label
+          className=""
+          htmlFor="contact"
+        >
+          Contact
+        </label>
+      </span>
+      <span
+        className="input-group"
+      >
+        <input
+          checked={false}
+          id="group"
+          name="msgTo"
+          onChange={[Function]}
+          type="radio"
+          value="group"
+        />
+        <label
+          className=""
+          htmlFor="group"
+        >
+          Group
+        </label>
+      </span>
+    </div>
+    <div
+      className="lg:w-3/4 w-4/5 mx-auto"
+    >
+      <div
+        className="flex flex-col input-group items-center"
+      >
+        <label
+          htmlFor="email"
+        >
+          Email
+        </label>
+        <input
+          className="input"
+          name="email"
+          onChange={[Function]}
+          placeholder="johndoe@epicmail.com"
+          required={true}
+          type="email"
+        />
+      </div>
+      <div
+        className="flex flex-col input-group items-center"
+      >
+        <label
+          htmlFor="subject"
+        >
+          Subject
+        </label>
+        <input
+          className="input"
+          name="subject"
+          onChange={[Function]}
+          placeholder="Subject"
+          required={true}
+          type="text"
+        />
+      </div>
+      <div
+        className="flex flex-col input-group items-center"
+      >
+        <label
+          htmlFor="message"
+        >
+          Message
+        </label>
+        <textarea
+          className="input"
+          name="message"
+          onChange={[Function]}
+          placeholder="Message"
+          required={true}
+          rows={5}
+        />
+      </div>
+    </div>
+    <div
+      className="text-center smsSend"
+    >
+      <input
+        id="sms"
+        name="sendsms"
+        onChange={[Function]}
+        type="checkbox"
+        value={true}
+      />
+      <label
+        className="f-15 ml-2"
+        htmlFor="sms"
+      >
+        Send SMS
+      </label>
+    </div>
+    <div
+      className="action"
+    >
+      <span>
+        <button
+          className="sendBtn"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          send
+        </button>
+      </span>
+      <span>
+        <button
+          className="sendBtn"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          save
+        </button>
+      </span>
+    </div>
+  </form>
+</div>
+`;

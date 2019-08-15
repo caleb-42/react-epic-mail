@@ -8,7 +8,7 @@ const SideNav = ({ navs, navigate, activeNav }) => {
       <ul className="side-nav mt-16 relative navig anim">
         {
           navs.map((nav, navIndex) => (
-            <li key={navIndex}>
+            <li key={navIndex} className={nav.disabled ? 'pointer-events-none opacity-50' : ''}>
               <h3 onClick={
                 () => navigate({ menu: nav.name })
               } className={`${nav.name === activeNav.menu ? 'active' : ''} nav text-white px-12 py-6 text-xl font-semibold`}>{nav.name}</h3>
