@@ -33,7 +33,7 @@ const MailPostBloated = ({ mail, user, mailAction, modalAction }) => {
             />
           }
           {
-            Number(user.id) === Number(mail.senderid) &&
+            Number(user.id) === Number(mail.senderid) && mail.status !== 'read' &&
             <SubmitBtn
               className="updateMail"
               disabled={deleting}

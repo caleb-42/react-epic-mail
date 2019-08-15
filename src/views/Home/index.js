@@ -22,7 +22,7 @@ export const Home = ({ history, modal, toggleModal }) => {
         <Nav position="top" />
         <Tabs className="flex-grow" />
       </div>
-      <button onClick={(e, payload = { kind: 'newMail' }) => openModal(e, payload)} type="button" className="anim newMail"></button>
+      <button title="newMail" onClick={(e, payload = { kind: 'newMail' }) => openModal(e, payload)} type="button" className="anim newMail"></button>
       <Modal payload={modal.payload} open={modal.open} onCloseModal={() => toggleModal({ ...modal, open: false })} />
     </div>
   );

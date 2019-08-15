@@ -17,14 +17,16 @@ const renderHomePage = (args) => {
     history: { push: jest.fn((nav) => { }) },
     modal,
     navs,
-    toggleModal: jest.fn((user, cb) => { cb({ data: true }); })
+    toggleModal: jest.fn((user) => { })
   }
   const props = { ...defaultProps, ...args };
 
   return render(
-    <MemoryRouter>
-      <Home {...props} />
-    </MemoryRouter>
+    <ReduxProvider store={store}>
+      <MemoryRouter>
+        <Home {...props} />
+      </MemoryRouter>
+    </ReduxProvider>
   );
 }
 
@@ -46,16 +48,13 @@ describe('HOME', () => {
   });
 
   describe('COMPONENT TEST', () => {
-    /* it("Should open modal if new mail button is clicked", () => {
-      const { getByRole } = renderHomePage();
-      fireEvent.click(getByRole('button'));
+    it("Should open modal if new mail button is clicked", () => {
+      const { getByTitle } = renderHomePage();
+      fireEvent.click(getByTitle('newMail'));
       expect(defaultProps.toggleModal).toHaveBeenCalled();
-    }); */
-    /* it("Should navigate to home page if res.data is true", () => {
-      const { getByText } = renderLogInPage({ auth: { ...auth, isAuthenticated: true } });
-      
-      expect(defaultProps.history.push).toHaveBeenCalled();
     });
+
+    /* 
     it("Should not navigate to hpme page if res.data is false", () => {
       const { getByText } = renderLogInPage({
         logInUser: jest.fn((user, cb) => { cb({ data: false }); })

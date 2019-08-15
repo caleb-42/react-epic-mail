@@ -10,7 +10,9 @@ exports[`SNAPSHOT TEST Nav Component with SideBar 1`] = `
   <ul
     className="side-nav mt-16 relative navig anim"
   >
-    <li>
+    <li
+      className=""
+    >
       <h3
         className="active nav text-white px-12 py-6 text-xl font-semibold"
         onClick={[Function]}
@@ -46,7 +48,9 @@ exports[`SNAPSHOT TEST Nav Component with SideBar 1`] = `
         </li>
       </ul>
     </li>
-    <li>
+    <li
+      className="pointer-events-none opacity-50"
+    >
       <h3
         className=" nav text-white px-12 py-6 text-xl font-semibold"
         onClick={[Function]}
@@ -54,7 +58,9 @@ exports[`SNAPSHOT TEST Nav Component with SideBar 1`] = `
         Groups
       </h3>
     </li>
-    <li>
+    <li
+      className="pointer-events-none opacity-50"
+    >
       <h3
         className=" nav text-white px-12 py-6 text-xl font-semibold"
         onClick={[Function]}
@@ -62,7 +68,9 @@ exports[`SNAPSHOT TEST Nav Component with SideBar 1`] = `
         Settings
       </h3>
     </li>
-    <li>
+    <li
+      className=""
+    >
       <h3
         className=" nav text-white px-12 py-6 text-xl font-semibold"
         onClick={[Function]}
@@ -72,4 +80,71 @@ exports[`SNAPSHOT TEST Nav Component with SideBar 1`] = `
     </li>
   </ul>
 </aside>
+`;
+
+exports[`SNAPSHOT TEST Nav Component with TopBar 1`] = `
+<ul
+  className="appNav top-nav hide navig w-full anim bg-gray-800"
+>
+  <li>
+    <h3
+      className="active nav text-white px-12 py-6 text-xl font-semibold"
+      onClick={[Function]}
+    >
+      Mails
+    </h3>
+    <ul
+      className="mail-types bg-gray-750 anim w-100 open"
+    >
+      <li
+        className="active subnav px-12 py-4 text-md"
+        onClick={[Function]}
+      >
+        Inbox
+      </li>
+      <li
+        className="text-white subnav px-12 py-4 text-md"
+        onClick={[Function]}
+      >
+        Unread
+      </li>
+      <li
+        className="text-white subnav px-12 py-4 text-md"
+        onClick={[Function]}
+      >
+        Sent
+      </li>
+      <li
+        className="text-white subnav px-12 py-4 text-md"
+        onClick={[Function]}
+      >
+        Draft
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h3
+      className=" nav text-white px-12 py-6 text-xl font-semibold"
+      onClick={[Function]}
+    >
+      Groups
+    </h3>
+  </li>
+  <li>
+    <h3
+      className=" nav text-white px-12 py-6 text-xl font-semibold"
+      onClick={[Function]}
+    >
+      Settings
+    </h3>
+  </li>
+  <li>
+    <h3
+      className=" nav text-white px-12 py-6 text-xl font-semibold"
+      onClick={[Function]}
+    >
+      Sign Out
+    </h3>
+  </li>
+</ul>
 `;

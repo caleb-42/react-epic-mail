@@ -37,10 +37,12 @@ export const navs = [
     ]
   },
   {
-    name: 'Groups'
+    name: 'Groups',
+    disabled: true,
   },
   {
-    name: 'Settings'
+    name: 'Settings',
+    disabled: true
   },
   {
     name: 'Sign Out'
