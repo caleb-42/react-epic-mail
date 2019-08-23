@@ -9,7 +9,7 @@ import Slider from "./partitions/Slider";
 
 const Landing = () => {
   return (
-    <div className="landingPage">
+    <div className="landingPage h-full overflow-auto">
       <Nav />
       <Slider />
       <Offers className="w-full pt-12 pb-20 bg-white offers relative z-10" />

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import PropTypes from 'prop-types';
-import Form from "../../../components/Forms/AuthForm";
-import Nav from "../../../components/NavBar";
+import Form from "@components/Forms/AuthForm";
+import Nav from "@components/NavBar";
 import "../index.scss";
-import Footer from "../../../components/Footer";
-import { logInUser } from "../../../redux/actions/authActions";
+import callToast from '@components/Toast';
+import Footer from "@components/Footer";
+import { logInUser } from "@redux/actions/authActions";
 
 export const LogIn = ({ history, logInUser, auth }) => {
   const [user, setUser] = useState({});
@@ -23,6 +24,10 @@ export const LogIn = ({ history, logInUser, auth }) => {
     })
   }
 
+  React.useEffect(() => {
+    if (login.error) callToast(login.error, 'error');
+  }, [login.error])
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
@@ -31,9 +36,8 @@ export const LogIn = ({ history, logInUser, auth }) => {
   return (
     <div className="auth">
       <Nav className="block w-full" />
-      <div className="logIn flexdiv">
+      <div className="logIn z-20 relative flexdiv">
         <Form
-          error={login.error}
           header='Log In'
           button='Sign In'
           saving={saving}
@@ -54,7 +58,7 @@ export const LogIn = ({ history, logInUser, auth }) => {
           ]}
         />
       </div>
-      <Footer className="absolute bottom-0" />
+      <Footer className="" />
     </div>
   );
 }

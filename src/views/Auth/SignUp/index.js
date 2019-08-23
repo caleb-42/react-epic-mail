@@ -5,6 +5,7 @@ import Form from "@components/Forms/AuthForm";
 import Nav from "@components/NavBar";
 import "../index.scss";
 import Footer from "@components/Footer";
+import callToast from '@components/Toast';
 import { signUpUser } from "@redux/actions/authActions";
 
 export const SignUp = ({ history, signUpUser, auth }) => {
@@ -23,6 +24,10 @@ export const SignUp = ({ history, signUpUser, auth }) => {
     })
   }
 
+  React.useEffect(() => {
+    if (signUp.error) callToast(signUp.error, 'error');
+  }, [signUp.error])
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
@@ -31,7 +36,7 @@ export const SignUp = ({ history, signUpUser, auth }) => {
   return (
     <div className="auth">
       <Nav className="block w-full" />
-      <div className="signUp flexdiv">
+      <div className="signUp z-20 relative flexdiv">
         <Form
           error={signUp.error}
           header='Sign Up'
@@ -74,7 +79,7 @@ export const SignUp = ({ history, signUpUser, auth }) => {
           ]}
         />
       </div>
-      <Footer className="absolute bottom-0" />
+      <Footer className="" />
     </div>
   );
 }
@@ -89,7 +94,6 @@ SignUp.propTypes = {
 }
 
 function mapStateToProps(state) {
-  /* console.log(state); */
   return {
     auth: state.auth
   }

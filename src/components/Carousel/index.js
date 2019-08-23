@@ -9,16 +9,16 @@ const Slider = ({ slides }) => {
     document.getElementsByClassName("aws-sld__next")[0].click();
   }, 9000);
   return (
-    <div>
+    <div className="z-20 relative">
       <AwesomeSlider bullets={false} startup={true} className="h-124" cssModule={AwsSliderStyles}>
         {
           slides.map(({ url, caption_sm, caption_lg }, index) => (
             <div key={index} data-src={url}>
-              <div className="absolute ml-32 mt-48 w-64 top-0 left-0">
-                <p className="text-3xl border-green-400 inline-block border-b-4 text-white">
+              <div className="absolute md:ml-32 sm:ml-18 ml-8 mt-48 w-64 top-0 left-0">
+                <p className="md:text-3xl text-xl sm:text-2xl inline-block pr-4 border-green-400 border-b-4 text-white">
                   {caption_sm}
                 </p>
-                <p className="text-6xl inline-block text-white">
+                <p className="md:text-6xl text-4xl sm:text-5xl text-white">
                   {caption_lg}
                 </p>
               </div>

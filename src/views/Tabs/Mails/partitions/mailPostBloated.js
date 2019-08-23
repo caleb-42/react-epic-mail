@@ -6,6 +6,7 @@ const MailPostBloated = ({ mail, user, mailAction, modalAction }) => {
 
   const [deleting, setDeleting] = React.useState(false);
   const [sending, setSending] = React.useState(false);
+  console.log('update', Number(user.id) === Number(mail.senderid) && mail.status !== 'read', mail.status, user.id, mail.senderid);
 
   return !mail.email ? <div></div>
     : (
@@ -33,7 +34,7 @@ const MailPostBloated = ({ mail, user, mailAction, modalAction }) => {
             />
           }
           {
-            Number(user.id) === Number(mail.senderid) && mail.status !== 'read' &&
+            Number(user.id) === Number(mail.senderid) &&
             <SubmitBtn
               className="updateMail"
               disabled={deleting}

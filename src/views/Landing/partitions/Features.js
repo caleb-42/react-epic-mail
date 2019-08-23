@@ -26,13 +26,13 @@ const Features = ({ className }) => {
   ]
   return (
     <div className={className}>
-      <div className="title mx-auto bg-gray-600 w-1/5 py-2 rounded-full shadow-lg -mt-8 relative z-20">
+      <div className="title mx-auto bg-gray-600 md:w-1/5 w-3/5 py-2 rounded-full shadow-lg -mt-8 relative z-20">
         <h3 className="text-center text-white text-2xl font-medium">Features</h3>
       </div>
-      <div className="mx-auto w-3/4 py-12">
+      <div className="mx-auto lg:w-3/4 md:w-4/5 w-full py-12">
         {
           feats.map((item, index) => (
-            <div key={index} className="pointer w-2/4 px-16 py-8 align-middle inline-block text-center anim">
+            <div key={index} className="pointer sm:w-2/4 w-4/5 lg:px-16 md:px-8 py-8 align-middle md:inline-block block mx-auto text-center anim">
               <div className="w-4/5 mx-auto">
                 <div className={item.art}></div>
                 <div className="text-center">

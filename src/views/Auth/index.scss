@@ -1,19 +1,32 @@
 .auth {
+  @apply h-full overflow-auto;
   .logIn, .signUp {
     background-image: url('/backgroundgrn.png');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+  }
+  .flexdiv{
+    height: 100%;
   }
   form{
+    @apply w-full flex flex-col justify-center inset-0 rounded-lg h-full m-auto px-2;
+    @screen sm{ @apply px-8; }
+    @screen md{ @apply w-3/4 p-8; width:fit-content; height: fit-content; }
+    @screen lg{ @apply w-2/4;}
+    @screen xl{ @apply w-5/12;}
     box-shadow: .1rem 0rem 1rem 0 rgba(0, 0, 0, .3);
+    .input-con{
+      @apply px-4 my-10;
+      @screen sm{ @apply px-10}
+    }
   }
   .error {
     color: rgba(255, 255, 255, .8) !important;
   }
   .input-group{
     @apply py-1 text-white;
-    font-size: 1rem;
+    font-size: .8rem;
+    @screen sm{ font-size: 1rem; }
   }
   label{
     @apply font-medium w-2/5;
