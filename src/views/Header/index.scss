@@ -32,7 +32,7 @@
   .hamburger{
     @apply hidden;
     @media  (max-width: 992px) {
-      @apply p-1 text-white block;
+      @apply p-1 text-white inline-block;
       .hamburger-inner, .hamburger-inner:after, .hamburger-inner:before{
         background: rgba(255,255,255,.7);
       } 

@@ -1,3 +1,19 @@
-.appNav{
-  
+.appNavig{
+  @apply bg-gray-800 px-6 flex flex-wrap items-center py-2 z-20 relative;
+  margin-bottom: -14.5rem;
+  z-index: 10;
+  @screen md{
+    z-index: 40;
+    @apply px-16 py-2 bg-transparent -mb-18 py-0;
+  }
+  ul{
+    @apply w-32 mx-auto;
+    @screen md{ @apply w-full m-0; }
+  }
+  li{
+    @apply text-center;
+  }
+  &.active{
+    margin-bottom: 0;
+  }
 }

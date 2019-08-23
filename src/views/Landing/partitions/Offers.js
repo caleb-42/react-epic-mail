@@ -6,9 +6,9 @@ const Offers = ({ className }) => {
 
   return (
     <div className={className}>
-      <div className="w-2/5 mx-auto">
+      <div className="lg:w-2/5 md:3/5 w-4/5 mx-auto">
         <h1 className="text-center text-gray-800 w-100 text-2xl mb-4 font-medium">What we offer</h1>
-        <div className="w-full mx-auto mb-8 flex flex-col md:flex-row">
+        <div className="w-full mx-auto mb-8 flex flex-col sm:flex-row">
           {
             offers.map((item, index) => (
               <div key={index} className="flex-1 inline-block">
