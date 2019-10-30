@@ -5,6 +5,9 @@
 
 React Frontend of epic mail project. Epic mail is an app that will cater for the messaging needs of users who sign up to it
 
+## APP LINK 
+https://epicmail-react.herokuapp.com/
+
 ## Built with
 
 1. HTML
